@@ -7,6 +7,11 @@ Because I'm a rookie developer - I started this project to learn more about node
 
 I'm developing everything on ubuntu and I still didn't make some changes to fully control videos and music with omxplayer. PLEASE TEST IT ON UBUNTU, I will update the readme when it will be raspberry ready.
 
+Prerequisites:
+1. Node.js/npm
+2. Firefox/iceweasel
+
+How to start:
 1. Start the system like every other express application: cd "FunView directory"; npm start;
 2. To access SYSTEM: open browser and connect to http://localhost:3000
 3. To access REMOTE CONTROL: open browser on mobile phone and connect to the address that is displayed in the browser
