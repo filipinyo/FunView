@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="60px"
+   height="60px"
+   viewBox="0 0 60 60"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="HDD.svg">
+  <metadata
+     id="metadata25">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1871"
+     inkscape:window-height="1056"
+     id="namedview23"
+     showgrid="false"
+     inkscape:zoom="3.9333333"
+     inkscape:cx="-9.5338983"
+     inkscape:cy="30"
+     inkscape:window-x="1729"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title4">HDD</title>
+  <desc
+     id="desc6">Created with Sketch.</desc>
+  <defs
+     id="defs8" />
+  <g
+     id="colored"
+     sketch:type="MSPage"
+     transform="translate(-0.5,-0.5)"
+     style="fill:none;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+    <g
+       id="Tech_sliced"
+       sketch:type="MSLayerGroup"
+       transform="translate(-360,-1200)"
+       style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <g
+       id="Tech"
+       sketch:type="MSLayerGroup"
+       transform="translate(-358,-1209)"
+       style="stroke:#314e55;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+      <g
+         id="HDD"
+         transform="translate(366,1212)"
+         sketch:type="MSShapeGroup"
+         style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+        <rect
+           id="Rectangle-528"
+           x="0"
+           y="0"
+           width="45"
+           height="55"
+           style="fill:#eaeaea;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-533"
+           cx="22.5"
+           cy="20.5"
+           r="16.5"
+           d="M 39,20.5 C 39,29.612698 31.612698,37 22.5,37 13.387302,37 6,29.612698 6,20.5 6,11.387302 13.387302,4 22.5,4 31.612698,4 39,11.387302 39,20.5 z"
+           sodipodi:cx="22.5"
+           sodipodi:cy="20.5"
+           sodipodi:rx="16.5"
+           sodipodi:ry="16.5"
+           style="fill:#73c9c9;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-534"
+           cx="22.5"
+           cy="20.5"
+           r="5.5"
+           d="M 28,20.5 C 28,23.537566 25.537566,26 22.5,26 19.462434,26 17,23.537566 17,20.5 17,17.462434 19.462434,15 22.5,15 c 3.037566,0 5.5,2.462434 5.5,5.5 z"
+           sodipodi:cx="22.5"
+           sodipodi:cy="20.5"
+           sodipodi:rx="5.5"
+           sodipodi:ry="5.5"
+           style="fill:#e4ad40;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-535"
+           cx="41"
+           cy="4"
+           r="1"
+           d="m 42,4 c 0,0.5522847 -0.447715,1 -1,1 -0.552285,0 -1,-0.4477153 -1,-1 0,-0.5522847 0.447715,-1 1,-1 0.552285,0 1,0.4477153 1,1 z"
+           sodipodi:cx="41"
+           sodipodi:cy="4"
+           sodipodi:rx="1"
+           sodipodi:ry="1"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-536"
+           cx="41"
+           cy="51"
+           r="1"
+           d="m 42,51 c 0,0.552285 -0.447715,1 -1,1 -0.552285,0 -1,-0.447715 -1,-1 0,-0.552285 0.447715,-1 1,-1 0.552285,0 1,0.447715 1,1 z"
+           sodipodi:cx="41"
+           sodipodi:cy="51"
+           sodipodi:rx="1"
+           sodipodi:ry="1"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-538"
+           cx="4"
+           cy="4"
+           r="1"
+           d="M 5,4 C 5,4.5522847 4.5522847,5 4,5 3.4477153,5 3,4.5522847 3,4 3,3.4477153 3.4477153,3 4,3 4.5522847,3 5,3.4477153 5,4 z"
+           sodipodi:cx="4"
+           sodipodi:cy="4"
+           sodipodi:rx="1"
+           sodipodi:ry="1"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-537"
+           cx="4"
+           cy="51"
+           r="1"
+           d="m 5,51 c 0,0.552285 -0.4477153,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.5522847,0 1,0.447715 1,1 z"
+           sodipodi:cx="4"
+           sodipodi:cy="51"
+           sodipodi:rx="1"
+           sodipodi:ry="1"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-540"
+           cx="9"
+           cy="43"
+           r="1"
+           d="m 10,43 c 0,0.552285 -0.4477153,1 -1,1 -0.5522847,0 -1,-0.447715 -1,-1 0,-0.552285 0.4477153,-1 1,-1 0.5522847,0 1,0.447715 1,1 z"
+           sodipodi:cx="9"
+           sodipodi:cy="43"
+           sodipodi:rx="1"
+           sodipodi:ry="1"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M 21.799234,45.745214 18,22 14.200766,45.745214 C 14.070495,46.139864 14,46.5617 14,47 c 0,2.209139 1.790861,4 4,4 2.209139,0 4,-1.790861 4,-4 0,-0.4383 -0.0705,-0.860136 -0.200766,-1.254786 z"
+           id="Triangle-21"
+           transform="matrix(0.58778525,0.80901699,-0.80901699,0.58778525,36.948986,0.48353239)"
+           inkscape:connector-curvature="0"
+           style="fill:#e65f58;stroke-linecap:round;stroke-linejoin:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+    </g>
+  </g>
+</svg>

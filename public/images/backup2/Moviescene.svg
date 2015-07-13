@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="60px"
+   height="60px"
+   viewBox="0 0 60 60"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Moviescene.svg">
+  <metadata
+     id="metadata41">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1871"
+     inkscape:window-height="1056"
+     id="namedview39"
+     showgrid="false"
+     inkscape:zoom="3.9333333"
+     inkscape:cx="-9.5338983"
+     inkscape:cy="30"
+     inkscape:window-x="1729"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title4">Moviescene</title>
+  <desc
+     id="desc6">Created with Sketch.</desc>
+  <defs
+     id="defs8" />
+  <g
+     id="colored"
+     sketch:type="MSPage"
+     transform="translate(0.34463447,-2.4276773)"
+     style="fill:none;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+    <g
+       id="Photo_sliced"
+       sketch:type="MSLayerGroup"
+       transform="translate(-720,0)"
+       style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <g
+       id="Photo"
+       sketch:type="MSLayerGroup"
+       transform="translate(-719,3)"
+       style="stroke:#314e55;stroke-width:1;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none">
+      <g
+         id="Moviescene"
+         transform="translate(722,5)"
+         sketch:type="MSShapeGroup"
+         style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+        <rect
+           id="Rectangle-2541"
+           x="2"
+           y="25"
+           width="50"
+           height="23"
+           style="fill:#e9e7d1;stroke-linecap:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <rect
+           id="rect15"
+           x="2"
+           y="17"
+           width="50"
+           height="8"
+           style="fill:#73c9c9;stroke-linecap:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 6,17 2.5,8"
+           id="Path-5681"
+           inkscape:connector-curvature="0"
+           style="fill:#d8d8d8;stroke-linecap:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 16,17 2.5,8"
+           id="Path-5682"
+           inkscape:connector-curvature="0"
+           style="fill:#d8d8d8;stroke-linecap:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 26,17 2.5,8"
+           id="Path-5683"
+           inkscape:connector-curvature="0"
+           style="fill:#d8d8d8;stroke-linecap:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 36,17 2.5,8"
+           id="Path-5684"
+           inkscape:connector-curvature="0"
+           style="fill:#d8d8d8;stroke-linecap:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <g
+           id="Group"
+           transform="matrix(0.9961947,-0.08715574,0.08715574,0.9961947,0.31453636,5.3002973)"
+           style="stroke-linecap:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+          <rect
+             id="Rectangle-2542"
+             x="1"
+             y="1.5321078e-12"
+             width="50"
+             height="8"
+             style="fill:#f28544;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+          <path
+             d="M 5,0 7.5,8"
+             id="Path-5686"
+             inkscape:connector-curvature="0"
+             style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+          <path
+             d="m 15,0 2.5,8"
+             id="Path-5687"
+             inkscape:connector-curvature="0"
+             style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+          <path
+             d="m 25,0 2.5,8"
+             id="Path-5688"
+             inkscape:connector-curvature="0"
+             style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+          <path
+             d="m 35,0 2.5,8"
+             id="Path-5689"
+             inkscape:connector-curvature="0"
+             style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+          <path
+             d="m 45,0 2.5,8"
+             id="Path-5690"
+             inkscape:connector-curvature="0"
+             style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        </g>
+        <path
+           d="m 46,17 2.5,8"
+           id="Path-5685"
+           inkscape:connector-curvature="0"
+           style="fill:#d8d8d8;stroke-linecap:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 6,29 19,0"
+           id="Line"
+           inkscape:connector-curvature="0"
+           style="fill:#d8d8d8;stroke-linecap:square;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 6,32 19,0"
+           id="path30"
+           inkscape:connector-curvature="0"
+           style="fill:#d8d8d8;stroke-linecap:square;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 6,40 42,0"
+           id="path32"
+           inkscape:connector-curvature="0"
+           style="stroke-linecap:square;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 12,40 0,4"
+           id="path34"
+           inkscape:connector-curvature="0"
+           style="stroke-linecap:square;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 22,40 0,4"
+           id="Line-417"
+           inkscape:connector-curvature="0"
+           style="stroke-linecap:square;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 32,40 0,4"
+           id="Line-418"
+           inkscape:connector-curvature="0"
+           style="stroke-linecap:square;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="m 42,40 0,4"
+           id="Line-419"
+           inkscape:connector-curvature="0"
+           style="stroke-linecap:square;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+    </g>
+  </g>
+</svg>

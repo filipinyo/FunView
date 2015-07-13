@@ -1,0 +1,278 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    font-size: 62.5%;
+    font-family: "Raleway", sans-serif;
+    color: white;
+}
+
+p {
+    font-size: 2rem;
+    word-wrap: break-word;
+}
+
+a, a:hover, a:visited, a:active{
+    text-decoration: none;
+    color: white;
+}
+
+#container {
+    position: fixed;
+    display: inline-flex; /*ZA VERTIKALNO PORAVNAVO*/
+    height: 100%;
+    width: 100%;
+    background-image: url("/images/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*MENU*/
+
+#menu {
+    position: relative;
+    width: 12rem;
+    min-width: 12rem;
+    height: 77rem;
+    margin: auto; /*ZA VERTIKALNO PORAVNAVO*/
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.menu-item {
+    /*border: 1px solid white;*/
+    height: 12rem;
+    width: 100%;
+    border-radius: 2rem;
+    background-color: rgba(20, 137, 165, 0.5); /*rgba(51,153,255,0.6);*/
+    margin-bottom: 1rem;
+}
+
+.menu-item:first-of-type {
+    margin-top: 6rem;
+}
+
+.enable-scroll {
+    width: 100%;
+    height: 100%;
+}
+
+/*MENU SELECTION*/
+
+.selected {
+    border: 0.5rem solid;
+    border-color: rgba(35, 255, 177, 0.5)/*border-color: rgba(255,83,0,0.8);*/
+}
+
+.highlight {
+    outline: 0.5rem solid sandybrown; /*cornflowerblue;*/
+    -moz-outline-radius: 2.4rem;
+}
+
+/*MENU IMAGES*/
+
+.menu-item {
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#video-item{
+    background-image: url("/images/Moviescene.svg");
+}
+
+#photo-item{
+    background-image: url("/images/Nightphoto.svg");
+}
+
+#music-item{
+    background-image: url("/images/Musical.svg");
+}
+
+#browser-item{
+    background-image: url("/images/Youtube.svg");
+}
+
+#settings-item{
+    background-image: url("/images/HDD.svg");
+}
+
+/*CONTENT*/
+
+#content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    margin: auto; /*ZA VERTIKALNO PORAVNAVO*/
+}
+
+h1 {
+    margin-top: 0rem;
+    margin-bottom: 2rem;
+    padding-top: 2rem;
+    text-align: center;
+}
+
+.content-wrapper { /*WRAPS THE WHOLE CONTENT AREA*/
+    height: 100%;
+    width: 100%;
+}
+
+.content-item {
+    height: 100%;
+    width: 100%;
+}
+
+.content-data {
+    height: 100%;
+    width: 100%;
+    list-style: none;
+    padding-left: 1rem;
+    margin-bottom: 0rem;
+}
+
+.file-wrapper {
+    width: 30%;
+    height: 10%;
+    margin: 1rem;
+    border-radius: 2rem;
+    background-color: rgba(0, 102, 102, 0.5);
+    font-size: 2.2rem;
+    display: inline-block;
+}
+
+.file-info {
+    list-style: none;
+    margin: auto;
+    text-align: right;
+    padding-right: 2rem;
+}
+
+.video-file{
+    height: 100%;
+    width: 33.3333%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("/images/MOV.svg");
+    float: left;
+}
+
+.photo-file{
+    height: 100%;
+    width: 33.3333%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("/images/JPG.svg");
+    float: left;
+}
+
+.music-file{
+    height: 100%;
+    width: 33.3333%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("/images/MP3.svg");
+    float: left;
+}
+
+.usb-devices{
+    padding-left: 0;
+}
+
+/*BUTTONS*/
+
+.btn-block {
+    width: 70%;
+    margin: auto;
+    border: none;
+}
+
+.button-text {
+    font-size: 3rem;
+    text-align: center;
+}
+
+.btn-selected {
+    background-color: rgba(35, 255, 177, 0.5);
+}
+
+/*CONTENT HOME*/
+
+#home-header {
+    font-size: 7rem;
+}
+
+#home-text {
+    font-size: 50px; 
+    text-align: center; 
+    margin-top: 3rem;
+}
+
+#home-rights {
+    font-size: 50px; 
+    text-align: center; 
+    margin-top: 3rem;
+}
+
+#home-localAddress{
+    color: orange; 
+    font-size: 6rem;
+}
+
+#home-icon {
+    width: 40rem; 
+    display: block; 
+    margin: auto;
+    padding-top: 2rem;
+}
+
+/*MEDIA*/
+
+@media (min-width: 2000px) {
+    /*MENU*/
+
+    #menu {
+        position: relative;
+        width: 16rem;
+        min-width: 16rem;
+        height: 101rem;
+        margin: auto; /*ZA VERTIKALNO PORAVNAVO*/
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .menu-item {
+        border: 1px solid black;
+        height: 16rem;
+        width: 100%;
+        border-radius: 2rem;
+        /*background-color: #0b97c4;*/
+        background-color: rgba(20, 137, 165, 0.5);
+        margin-bottom: 1rem;
+    }
+}
+
+/*LIGHTBOX MODIFICATION*/
+
+@media (min-width: 4000px) {
+    /*MENU*/
+
+    #menu {
+        position: relative;
+        width: 35rem;
+        min-width: 35rem;
+        height: 210rem;
+        margin: auto; /*ZA VERTIKALNO PORAVNAVO*/
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .menu-item {
+        border: 1px solid black;
+        height: 35rem;
+        width: 100%;
+        border-radius: 2rem;
+        /*background-color: #0b97c4;*/
+        background-color: rgba(20, 137, 165, 0.5);
+        margin-bottom: 1rem;
+    }
+}

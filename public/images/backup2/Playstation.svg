@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="60px"
+   height="60px"
+   viewBox="0 0 60 60"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Playstation.svg">
+  <metadata
+     id="metadata31">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1871"
+     inkscape:window-height="1056"
+     id="namedview29"
+     showgrid="false"
+     inkscape:zoom="3.9333333"
+     inkscape:cx="-9.279661"
+     inkscape:cy="30"
+     inkscape:window-x="1729"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title4">Playstation</title>
+  <desc
+     id="desc6">Created with Sketch.</desc>
+  <defs
+     id="defs8" />
+  <g
+     id="colored"
+     stroke="none"
+     stroke-width="1"
+     fill="none"
+     fill-rule="evenodd"
+     sketch:type="MSPage"
+     style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+    <g
+       id="Activities_sliced"
+       sketch:type="MSLayerGroup"
+       transform="translate(-720.000000, 0.000000)"
+       style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <g
+       id="Activities"
+       sketch:type="MSLayerGroup"
+       transform="translate(-734.000000, 2.000000)"
+       stroke="#314E55"
+       stroke-width="2"
+       stroke-linejoin="round"
+       style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+      <g
+         id="Playstation"
+         transform="translate(737.000000, 7.000000)"
+         sketch:type="MSShapeGroup"
+         style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           d="M43,16.0106742 C49.1193081,16.2724524 54,21.3162529 54,27.5 C54,33.8512746 48.8512746,39 42.5,39 C39.0143467,39 35.8908943,37.4492339 33.7819412,35 L20.2180588,35 C18.1091057,37.4492339 14.9856533,39 11.5,39 C5.14872538,39 0,33.8512746 0,27.5 C0,21.3162529 4.88069188,16.2724524 11,16.0106742 L11,16 L43,16 L43,16.0106742 Z"
+           id="Oval-791"
+           stroke-linecap="round"
+           fill="#EAEAEA"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M11,22 L11,32"
+           id="Line"
+           stroke-linecap="round"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M6,27 L16,27"
+           id="Line-241"
+           stroke-linecap="round"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-793"
+           stroke-linecap="round"
+           fill="#E65F58"
+           cx="42"
+           cy="22"
+           r="2"
+           d="m 44,22 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 0,-1.104569 0.895431,-2 2,-2 1.104569,0 2,0.895431 2,2 z"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-794"
+           stroke-linecap="round"
+           fill="#E65F58"
+           cx="48"
+           cy="27"
+           r="2"
+           d="m 50,27 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 0,-1.104569 0.895431,-2 2,-2 1.104569,0 2,0.895431 2,2 z"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-795"
+           stroke-linecap="round"
+           fill="#E65F58"
+           cx="36"
+           cy="27"
+           r="2"
+           d="m 38,27 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 0,-1.104569 0.895431,-2 2,-2 1.104569,0 2,0.895431 2,2 z"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <circle
+           id="Oval-796"
+           stroke-linecap="round"
+           fill="#E65F58"
+           cx="42"
+           cy="32"
+           r="2"
+           d="m 44,32 c 0,1.104569 -0.895431,2 -2,2 -1.104569,0 -2,-0.895431 -2,-2 0,-1.104569 0.895431,-2 2,-2 1.104569,0 2,0.895431 2,2 z"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <rect
+           id="Rectangle-944"
+           stroke-linecap="round"
+           fill="#D8D8D8"
+           x="24"
+           y="12"
+           width="8"
+           height="4"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M32,4 C30.3431458,4 29,5.34314575 29,7"
+           id="Oval-797"
+           stroke-linecap="square"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M49,1 C47.3431458,1 46,2.34314575 46,4"
+           id="path23"
+           stroke-linecap="square"
+           transform="translate(47.500000, 2.500000) rotate(-180.000000) translate(-47.500000, -2.500000) "
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M33,4 L44,4"
+           id="path25"
+           stroke-linecap="square"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M29,11 L29,7.83772236"
+           id="path27"
+           stroke-linecap="square"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+    </g>
+  </g>
+</svg>

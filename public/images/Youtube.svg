@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="60px"
+   height="60px"
+   viewBox="0 0 60 60"
+   version="1.1"
+   id="svg2"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Youtube.svg">
+  <metadata
+     id="metadata19">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1871"
+     inkscape:window-height="1056"
+     id="namedview17"
+     showgrid="false"
+     inkscape:zoom="3.9333333"
+     inkscape:cx="-9.279661"
+     inkscape:cy="30"
+     inkscape:window-x="1729"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+  <title
+     id="title4">Youtube</title>
+  <desc
+     id="desc6">Created with Sketch.</desc>
+  <defs
+     id="defs8" />
+  <g
+     id="colored"
+     sketch:type="MSPage"
+     transform="translate(0.5,-1)"
+     style="fill:none;stroke:none;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+    <g
+       id="Brands_sliced"
+       sketch:type="MSLayerGroup"
+       transform="translate(-360,-120)"
+       style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+    <g
+       id="Brands"
+       sketch:type="MSLayerGroup"
+       transform="translate(-357,-116)"
+       style="stroke:#314e55;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+      <g
+         id="Youtube"
+         transform="translate(363,130)"
+         sketch:type="MSShapeGroup"
+         style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none">
+        <path
+           d="M 47,25.225806 C 47,30.051613 43.065116,34 38.255814,34 L 8.7441861,34 C 3.9348837,34 0,30.051613 0,25.225806 L 0,8.7741936 C 0,3.9483871 3.9348837,0 8.7441861,0 L 38.255814,0 C 43.065116,0 47,3.9483871 47,8.7741936 l 0,16.4516124 0,0 z"
+           id="Shape"
+           inkscape:connector-curvature="0"
+           style="fill:#e65f58;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+        <path
+           d="M 18,9.3855 31.854881,17.501206 18,25.6145 18,9.3855 z"
+           id="path15"
+           inkscape:connector-curvature="0"
+           style="fill:#eaeaea;stroke-linecap:round;stroke-linejoin:round;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none" />
+      </g>
+    </g>
+  </g>
+</svg>

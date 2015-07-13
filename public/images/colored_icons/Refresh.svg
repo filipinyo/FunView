@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="60px" height="60px" viewBox="0 0 60 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>Refresh</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="colored" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Interaction_sliced" sketch:type="MSLayerGroup" transform="translate(0.000000, -960.000000)"></g>
+        <g id="Interaction" sketch:type="MSLayerGroup" transform="translate(-2.000000, -964.000000)" stroke="#314E55" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g id="Refresh" transform="translate(7.000000, 972.000000)" sketch:type="MSShapeGroup">
+                <path d="M46.3647971,14.4661249 C42.9756386,5.9888737 34.6872075,0 25,0 C12.2974508,0 2,10.2974508 2,23 M3.6936187,31.6785545 C7.11886982,40.0791868 15.3679949,46 25,46 C37.7025492,46 48,35.7025492 48,23" id="Oval-1846"></path>
+                <path d="M48.6459414,6.20873744 L48.6459414,14.2087374 L40.6459414,14.2087374" id="Rectangle-2529" transform="translate(44.645941, 10.208737) rotate(24.000000) translate(-44.645941, -10.208737) "></path>
+                <path d="M9.40045798,31.7488322 L9.40045798,39.7488322 L1.40045798,39.7488322" id="Rectangle-2530" transform="translate(5.400458, 35.748832) scale(-1, -1) rotate(24.000000) translate(-5.400458, -35.748832) "></path>
+            </g>
+        </g>
+    </g>
+</svg>
