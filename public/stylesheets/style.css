@@ -45,6 +45,7 @@ a, a:hover, a:visited, a:active{
     border-radius: 2rem;
     background-color: rgba(20, 137, 165, 0.5); /*rgba(51,153,255,0.6);*/
     margin-bottom: 1rem;
+    border: 1px solid #314E55;
 }
 
 .menu-item:first-of-type {
@@ -202,13 +203,13 @@ h1 {
 }
 
 #home-text {
-    font-size: 50px; 
+    font-size: 5rem; 
     text-align: center; 
     margin-top: 3rem;
 }
 
 #home-rights {
-    font-size: 50px; 
+    font-size: 3rem; 
     text-align: center; 
     margin-top: 3rem;
 }
