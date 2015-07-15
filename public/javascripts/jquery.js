@@ -27,13 +27,15 @@ $(document).ready(function(){
     });*/
 
     $('.video-page').on("click",".file-wrapper", function(){
-        var videoName = $(this).attr("data-file-path");
-        socket.emit("playVideo", videoName);
+        var video = {}; 
+        video.play = $(this).attr("data-file-path");
+        socket.emit("playVideo", JSON.stringify(video));
     });
 
     $('.music-page').on("click",".file-wrapper", function(){
-        var musicName = $(this).attr("data-file-path");
-        socket.emit("playMusic", musicName);
+        var music = {};
+        music.name = $(this).attr("data-file-path");
+        socket.emit("playMusic", JSON.stringify(music));
     });
 
 

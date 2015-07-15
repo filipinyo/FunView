@@ -152,10 +152,20 @@ sockets.init = function (server) {
         });
         
         //IF VIDEO IS SELECTED, START PLAYING VIDEO
-        socket.on("playVideo", function(data){
-            console.log("Playing " + data);
+        socket.on("playVideo", function(video){
+            video = JSON.parse(video);
+            
+            if(video.play !== null){
+                console.log("Playing " + video.play);
 
-            omx.play(data);
+                exec("killall vlc", function(){
+                exec("vlc --fullscreen " + '"' + video.play + '"');
+                });
+
+                io.sockets.emit();
+            }
+
+            //omx.play(data);
 
             /*exec("killall vlc", function(){
                 exec("vlc --fullscreen " + '"' + data + '"');
@@ -163,7 +173,7 @@ sockets.init = function (server) {
         });
 
         //IF MUSIC IS SELECTED, START PLAYING MUSIC
-        socket.on("playMusic", function(data){
+        socket.on("playMusic", function(music){
             console.log("Playing " + data);
 
             omx.play(data);

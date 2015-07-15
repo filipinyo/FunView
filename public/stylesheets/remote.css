@@ -1,6 +1,7 @@
 /*
-   BACKGROUND COLORS: #0099CC;
-
+    BACKGROUND COLORS: #0099CC;
+    BUTTON REMOTE COLORS: #00cc99;
+    VOLUME: 22, 194, 251;
 */
 
 html, body, #container {
@@ -18,11 +19,13 @@ html, body, #container {
 .hidden {
     -webkit-backface-visibility: hidden;
 }
+
 /*TOUCH AREA*/
 
 #touch-area{
     width: 100%;
     margin: auto;
+    margin-top: 1rem;
 }
 
 .button-row {            /*WHOLE ROW WITH BUTTONS*/
@@ -37,48 +40,73 @@ html, body, #container {
     padding: 0;
     margin-left: 6.25vw;
     float: left;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-color: #03C0FF;
+    /*background-size: contain;*/
+    background-size: 80%;
+    background-color: #0086b3;
     border: 1px solid black;
     border-radius: 2rem;
-    margin-bottom: 0.55rem;
+    margin-bottom: 0.50rem;
+    background: center;
+    background-repeat: no-repeat;
+}
+
+.unused {
+    border: none;
 }
 
 #up-button {
-    background-image: url("/images/colored_icons/Squareup.svg");
+    background-image: url("/images/cc-icons/0307-arrow-up.svg");
+    background-color: #0086b3;
 }
 
 #left-button {
-    background-image: url("/images/colored_icons/Squareleft.svg");
+    background-image: url("/images/cc-icons/0313-arrow-left.svg");
+    background-color: #0086b3;
 }
 
 #right-button {
-    background-image: url("/images/colored_icons/Squareright.svg");
+    background-image: url("/images/cc-icons/0309-arrow-right.svg");
+    background-color: #0086b3;
 }
 
 #down-button {
-    background-image: url("/images/colored_icons/Squaredown.svg");
+    background-image: url("/images/cc-icons/0311-arrow-down.svg");
+    background-color: #0086b3;
 }
 
 #ok-button {
-    background-image: url("/images/colored_icons/Smallsquares.svg");
+    background-image: url("/images/cc-icons/0343-radio-unchecked.svg");
+    background-color: #0086b3;
 }
 
 #fast-left-button {
     background-image: url("/images/colored_icons/Fastleft.svg");
+    background-color: #0086b3;
 }
 
 #fast-right-button {
     background-image: url("/images/colored_icons/Fastright.svg");
+    background-color: #0086b3;
 }
 
 #refresh-button {
-    background-image: url("/images/colored_icons/Refresh.svg");
+    background-image: url("/images/cc-icons/0303-loop2.svg");
+    background-color: #0086b3;
 }
 
 #close-button {
-    background-image: url("/images/colored_icons/No.svg");
+    background-image: url("/images/cc-icons/0270-cancel-circle.svg");
+    background-color: #0086b3;
+}
+
+#volume-up-button {
+    background-image: url("/images/cc-icons/0300-volume-increase.svg");
+    background-color: #0086b3;
+}
+
+#volume-down-button {
+    background-image: url("/images/cc-icons/0301-volume-decrease.svg");
+    background-color: #0086b3;
 }
 
 
@@ -137,7 +165,7 @@ li {
     height: 10rem;
     color: #FFF;
     border-radius: 2rem;
-    background-color: #03C0FF;
+    background-color: #0086b3;
     background-repeat: no-repeat;
     background-position: center;
     border: 1px solid #314E55;

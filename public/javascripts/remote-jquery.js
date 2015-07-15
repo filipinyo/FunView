@@ -42,7 +42,7 @@ $(document).ready(function () {
         switch (remoteLayoutType) {
             case "videos":
                 $('.controls').addClass('hidden');
-                $('#video-controls').removeClass('hidden');
+                $('#normal-controls').removeClass('hidden');
                 break;
             case "photos":
                 $('.controls').addClass('hidden');

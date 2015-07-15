@@ -94,7 +94,6 @@ socket.on('mediaCommand', function (command) {
             break;
     }
 
-
     /*==========  WHEN WE CHANGE MENU  ==========*/
 
     if(command.activeMenu != null) {
@@ -125,6 +124,11 @@ socket.on('mediaCommand', function (command) {
         if(currentlyDisplayedFiles === ".file-music"){
             var musicURL = $(currentlyDisplayedFiles +'.highlight').attr('data-file-path');
             $("li[data-file-path='" + musicURL + "']").click(); 
+        }
+
+        if(currentlyDisplayedFiles === ".file-video"){
+            var videoURL = $(currentlyDisplayedFiles +'.highlight').attr('data-file-path');
+            $("li[data-file-path='" + videoURL + "']").click(); 
         }
 
     } if (command.move != null){
