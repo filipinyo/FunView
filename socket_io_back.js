@@ -162,7 +162,7 @@ sockets.init = function (server) {
                 exec("vlc --fullscreen " + '"' + video.play + '"');
                 });
 
-                io.sockets.emit();
+                io.sockets.emit('changeRemoteLayout', 'video');
             }
 
             //omx.play(data);

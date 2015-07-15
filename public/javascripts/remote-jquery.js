@@ -37,14 +37,15 @@ $(document).ready(function () {
         var command = {};
         command.activeMenu = carousel.getActiveIndex();
         socket.emit('remoteCommand', JSON.stringify(command));
+    });
 
-        remoteLayoutType = $('li[class="itemslide-active"]').attr('id');
-        switch (remoteLayoutType) {
-            case "videos":
+    socket.on('changeRemoteLayout', function(data){
+        switch(data){
+            case "video":
                 $('.controls').addClass('hidden');
-                $('#normal-controls').removeClass('hidden');
+                $('#video-controls').removeClass('hidden');
                 break;
-            case "photos":
+            case "photo":
                 $('.controls').addClass('hidden');
                 $('#photo-controls').removeClass('hidden');
                 break;
@@ -62,6 +63,7 @@ $(document).ready(function () {
                 break;
         }
     });
+
                                                                 //MOVEMENT ON REMOTE
 
     $('.button-row').on('click','#ok-button', function(){       //OK

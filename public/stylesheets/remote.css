@@ -45,7 +45,7 @@ html, body, #container {
     background-color: #0086b3;
     border: 1px solid black;
     border-radius: 2rem;
-    margin-bottom: 0.50rem;
+    margin-bottom: 0.45rem;
     background: center;
     background-repeat: no-repeat;
 }
@@ -79,18 +79,35 @@ html, body, #container {
     background-color: #0086b3;
 }
 
+#refresh-button {
+    background-image: url("/images/cc-icons/0303-loop2.svg");
+    background-color: #0086b3;
+}
+
+/*MEDIA CONTROLS*/
+
 #fast-left-button {
-    background-image: url("/images/colored_icons/Fastleft.svg");
+    background-image: url("/images/cc-icons/0288-backward2.svg");
     background-color: #0086b3;
 }
 
 #fast-right-button {
-    background-image: url("/images/colored_icons/Fastright.svg");
+    background-image: url("/images/cc-icons/0289-forward3.svg");
     background-color: #0086b3;
 }
 
-#refresh-button {
-    background-image: url("/images/cc-icons/0303-loop2.svg");
+#play-button {
+    background-image: url("/images/cc-icons/0285-play3.svg");
+    background-color: #0086b3;
+}
+
+#pause-button {
+    background-image: url("/images/cc-icons/0286-pause2.svg");
+    background-color: #0086b3;
+}
+
+#stop-button {
+    background-image: url("/images/cc-icons/0287-stop2.svg");
     background-color: #0086b3;
 }
 
@@ -106,6 +123,11 @@ html, body, #container {
 
 #volume-down-button {
     background-image: url("/images/cc-icons/0301-volume-decrease.svg");
+    background-color: #0086b3;
+}
+
+#subtitles-button {
+    background-image: url("/images/cc-icons/0111-bubble2.svg");
     background-color: #0086b3;
 }
 
