@@ -165,6 +165,18 @@ sockets.init = function (server) {
                 io.sockets.emit('changeRemoteLayout', 'video');
             }
 
+            switch(video.command){
+
+                /*case "play":
+                    omx.play();
+                    break;*/
+
+                case "pause":
+                    omx.pause();
+                    break;
+
+            }
+
             //omx.play(data);
 
             /*exec("killall vlc", function(){

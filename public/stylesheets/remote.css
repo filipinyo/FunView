@@ -131,6 +131,26 @@ html, body, #container {
     background-color: #0086b3;
 }
 
+#subtitles-next-button {
+    background-image: url("/images/cc-icons/subtitle-next.svg");
+    background-color: #0086b3;
+}
+
+#subtitles-prev-button {
+    background-image: url("/images/cc-icons/subtitle-prev.svg");
+    background-color: #0086b3;
+}
+
+#subtitles-wait-button {
+    background-image: url("/images/cc-icons/subtitle-wait.svg");
+    background-color: #0086b3;
+}
+
+#subtitles-catch-button {
+    background-image: url("/images/cc-icons/subtitle-catch.svg");
+    background-color: #0086b3;
+}
+
 
 /*MENU BAR*/
 /*

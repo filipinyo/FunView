@@ -64,9 +64,9 @@ $(document).ready(function () {
         }
     });
 
-                                                                //MOVEMENT ON REMOTE
+    //MOVEMENT ON REMOTE
 
-    $('.button-row').on('click','#ok-button', function(){       //OK
+    $('.button-row').on('click','#ok-button', function(){       //OK-PLAY
         var command = {};
         command.select = true;
         socket.emit('remoteCommand', JSON.stringify(command));
@@ -108,4 +108,19 @@ $(document).ready(function () {
         command.move = "down";
         socket.emit('remoteCommand', JSON.stringify(command));
     });
+
+    //VIDEO CONTROLS
+
+    /*$('.button-row').on('click','#play-button', function(){       //OK-PLAY
+        var command = {};
+        command.select = true;
+        socket.emit('playVideo', JSON.stringify(command));
+    });*/
+    
+    $('.button-row').on('click','#pause-button', function(){       //OK-PLAY
+        var video = {};
+        video.command = "pause";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
+
 });
