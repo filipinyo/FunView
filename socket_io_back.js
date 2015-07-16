@@ -177,6 +177,45 @@ sockets.init = function (server) {
                     omx.stop();
                     io.sockets.emit('changeRemoteLayout', 'normal');
                     break;
+
+                case "seekForward":
+                    omx.seekForward();   
+                    break;
+
+                case "seekBackward":
+                    omx.seekBackward();   
+                    break;
+
+                case "toggleSubtitles":
+                    omx.toggleSubtitles();
+                    break;
+
+                case "increaseVolume":
+                    omx.increaseVolume();
+                    break;
+
+                case "decreaseVolume":
+                    omx.decreaseVolume();
+                    break;
+
+                case "nextSubtitleStream":
+                    omx.nextSubtitleStream();
+                    break;    
+
+                case "previousSubtitleStream":
+                    omx.previousSubtitleStream();
+                    break;   
+
+                case "increaseSubtitleDelay":
+                    omx.increaseSubtitleDelay();
+                    break;   
+                
+                case "reduceSubtitleDelay":
+                    omx.readuceSubtitleDelay;    
+                        
+                default:
+                    break;
+
             }
         });
 

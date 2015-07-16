@@ -119,19 +119,13 @@ $(document).ready(function () {
 
     //VIDEO CONTROLS
 
-    /*$('.button-row').on('click','#play-button', function(){       //OK-PLAY
-        var command = {};
-        command.select = true;
-        socket.emit('playVideo', JSON.stringify(command));
-    });*/
-
     $('.button-row').on('click','#play-button', function(){       //OK-PLAY
         var video = {};
         video.command = "play";
         socket.emit('playVideo', JSON.stringify(video));
     });
     
-    $('.button-row').on('click','#pause-button', function(){       //PAUSE
+    $('.button-row').on('click','#pause-button', function(){      //PAUSE
         var video = {};
         video.command = "pause";
         socket.emit('playVideo', JSON.stringify(video));
@@ -143,4 +137,57 @@ $(document).ready(function () {
         socket.emit('playVideo', JSON.stringify(video));
     });
 
+    $('.button-row').on('click','#fast-left-button', function(){       //FAST BACKWARD
+        var video = {};
+        video.command = "seekBackward";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
+
+    $('.button-row').on('click','#fast-right-button', function(){       //FAST FORWARD
+        var video = {};
+        video.command = "seekForward";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
+
+    $('.button-row').on('click','#subtitles-button', function(){       //TOGGLE SUBTITLES
+        var video = {};
+        video.command = "toggleSubtitles";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
+
+    $('.button-row').on('click','#volume-up-button', function(){       //VOLUME UP
+        var video = {};
+        video.command = "increaseVolume";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
+
+    $('.button-row').on('click','#volume-down-button', function(){       //VOLUME DOWN
+        var video = {};
+        video.command = "decreaseVolume";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
+
+    $('.button-row').on('click','#subtitles-reduce-delay-button', function(){       //REDUCE SUBTITLE DELAY
+        var video = {};
+        video.command = "reduceSubtitleDelay";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
+
+    $('.button-row').on('click','#subtitles-increase-delay-button', function(){       //INCREASE SUBTITLE DELAY
+        var video = {};
+        video.command = "increaseSubtitleDelay";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
+
+    $('.button-row').on('click','#subtitles-next-button.button', function(){       //LOAD NEXT SUBTITLES
+        var video = {};
+        video.command = "nextSubtitleStream";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
+
+    $('.button-row').on('click','#subtitles-prev-button.button', function(){       //LOAD PREVIOUS SUBTITLES
+        var video = {};
+        video.command = "previousSubtitleStream";
+        socket.emit('playVideo', JSON.stringify(video));
+    });
 });
