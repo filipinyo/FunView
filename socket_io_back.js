@@ -16,7 +16,7 @@ var fs = require('fs');
 var exec = require('child_process').exec; /*EXECUTE SHELL COMMANDS*/
 var omx = require('omx-manager'); //MODULE FOR CONTROLLING OMX PLAYER
 var localIPAdress = require('address').ip(); //MODULE USED FOR UTILITIES - WE USE IT FOR GETTING OUR LOCAL IP ADDRESS
-var currentUser = ""; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
+var currentUser = "" /*process.env.USER;*/ //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
 var usbDevices = [];
 var usbSelected = "";
 var utilities = {}; //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
@@ -158,30 +158,26 @@ sockets.init = function (server) {
             if(video.play !== null){
                 console.log("Playing " + video.play);
 
-                exec("killall vlc", function(){
-                exec("vlc --fullscreen " + '"' + video.play + '"');
-                });
+                omx.play(video.play);
 
                 io.sockets.emit('changeRemoteLayout', 'video');
             }
 
             switch(video.command){
 
-                /*case "play":
+                case "play":
                     omx.play();
-                    break;*/
+                    break;
 
                 case "pause":
                     omx.pause();
                     break;
 
+                case "stop":
+                    omx.stop();
+                    io.sockets.emit('changeRemoteLayout', 'normal');
+                    break;
             }
-
-            //omx.play(data);
-
-            /*exec("killall vlc", function(){
-                exec("vlc --fullscreen " + '"' + data + '"');
-            });*/
         });
 
         //IF MUSIC IS SELECTED, START PLAYING MUSIC
@@ -190,6 +186,7 @@ sockets.init = function (server) {
 
             omx.play(data);
 
+            io.sockets.emit('changeRemoteLayout', 'music');
             /*exec("killall vlc", function(){
                 exec("vlc --fullscreen " + '"' + data + '"');
             });*/

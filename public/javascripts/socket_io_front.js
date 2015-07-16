@@ -102,9 +102,9 @@ socket.on('mediaCommand', function (command) {
         if($('#lightboxOverlay').css('display') === "block")
         $('a[class="lb-close"]').click();
 
-        $('li.usb-device.btn-selected').removeClass('highlight');   //WHEN YOU SELECT OTHER MENU, BE SURE THAT USB DEVICE IS NOT HIGHLIGHTED OR CLICK WON'T WORK
+        $('li.usb-device.btn-selected').removeClass('highlight');   //WHEN YOU SELECT OTHER MENU, BE SURE THAT USB DEVICE IS NOT HIGHLIGHTED OR CLICK WON'T WORK - SIMPLY -> YOU CAN'T LOAD ONE USB TWICE
         $('.menu-item:eq(' + command.activeMenu + ')').trigger("click");
-        $(currentlyDisplayedFiles).removeClass('highlight');
+        $(currentlyDisplayedFiles).removeClass('highlight');    //DEFAULT HIGHLIGHTED ITEM WHEN YOU CHANGE MENU IS ALWAYS GONNA BE FIRST ONE AT THE TOP
         $(currentlyDisplayedFiles).eq(0).addClass('highlight');
         $('.content-wrapper').scrollTop(0);
         //$(currentlyDisplayedFiles).eq(0).addClass('highlight');
@@ -119,6 +119,8 @@ socket.on('mediaCommand', function (command) {
         if(currentlyDisplayedFiles === ".file-photo"){
             var pictureURL = $(currentlyDisplayedFiles +'.highlight').attr('data-file-path');
             $("a[href='" + pictureURL + "']").click(); 
+
+
         }
 
         if(currentlyDisplayedFiles === ".file-music"){
@@ -201,7 +203,7 @@ socket.on('mediaCommand', function (command) {
 
         if(!($('li' + currentlyDisplayedFiles + '.highlight').visible())){  //IF FILE IS NOT VISIBLE, SCROLL TO IT
             var highlightedItemIndex = $('li' + currentlyDisplayedFiles + '.highlight').index();
-            $('.content-wrapper').scrollTo($(currentlyDisplayedFiles).eq(highlightedItemIndex-1), {duration: 350});
+            $('.content-wrapper').scrollTo($(currentlyDisplayedFiles).eq(highlightedItemIndex-1)/*, {duration: 350}*/);
         }
     } if(command.action !== null) {
         switch(command.action){
