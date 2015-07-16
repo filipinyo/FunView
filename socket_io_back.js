@@ -182,9 +182,10 @@ sockets.init = function (server) {
 
         //IF MUSIC IS SELECTED, START PLAYING MUSIC
         socket.on("playMusic", function(music){
-            console.log("Playing " + data);
+            music = JSON.parse(music);
+            console.log("Playing " + music.name);
 
-            omx.play(data);
+            omx.play(music.name);
 
             io.sockets.emit('changeRemoteLayout', 'music');
             /*exec("killall vlc", function(){

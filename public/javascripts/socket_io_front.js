@@ -141,7 +141,7 @@ socket.on('mediaCommand', function (command) {
         * appropriate item on the app.
         *
         * Here we define how our front-app behaves dependently on the pressed direction it recieves
-        * from the controler. If we have selected ".usb-device" menu, only up and down button on the
+        * from the controler. If we have selected ".usb-device" menu, only up and down button on thePlaying
         * controler will work, otherwise left and right buttons will work when we will browse
         * throught the content
         *
