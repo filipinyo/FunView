@@ -262,10 +262,10 @@ function executeCommand(command){
             break;
 
         case "stop":
-            omx.stop();
-            exec("killall omxplayer");
+            exec("kill $(ps aux | grep omxplayer | awk 'NR==1 {print $2}')");
             io.sockets.emit('mediaCommand', "lightsOn");
             io.sockets.emit('changeRemoteLayout', 'normal');
+            omx.stop();
             break;
 
         case "seekForward":
