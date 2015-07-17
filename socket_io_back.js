@@ -163,61 +163,7 @@ sockets.init = function (server) {
                 io.sockets.emit('changeRemoteLayout', 'video');
             }
 
-            switch(video.command){
-
-                case "play":
-                    omx.play();
-                    break;
-
-                case "pause":
-                    omx.pause();
-                    break;
-
-                case "stop":
-                    omx.stop();
-                    io.sockets.emit('mediaCommand', "lightsOn");
-                    io.sockets.emit('changeRemoteLayout', 'normal');
-                    break;
-
-                case "seekForward":
-                    omx.seekForward();   
-                    break;
-
-                case "seekBackward":
-                    omx.seekBackward();   
-                    break;
-
-                case "toggleSubtitles":
-                    omx.toggleSubtitles();
-                    break;
-
-                case "increaseVolume":
-                    omx.increaseVolume();
-                    break;
-
-                case "decreaseVolume":
-                    omx.decreaseVolume();
-                    break;
-
-                case "nextSubtitleStream":
-                    omx.nextSubtitleStream();
-                    break;    
-
-                case "previousSubtitleStream":
-                    omx.previousSubtitleStream();
-                    break;   
-
-                case "increaseSubtitleDelay":
-                    omx.increaseSubtitleDelay();
-                    break;   
-                
-                case "reduceSubtitleDelay":
-                    omx.reduceSubtitleDelay();    
-                        
-                default:
-                    break;
-
-            }
+            executeCommand(video);
         });
 
         //IF MUSIC IS SELECTED, START PLAYING MUSIC
@@ -228,6 +174,7 @@ sockets.init = function (server) {
             omx.play(music.name);
 
             io.sockets.emit('changeRemoteLayout', 'music');
+            executeCommand(music);
             /*exec("killall vlc", function(){
                 exec("vlc --fullscreen " + '"' + data + '"');
             });*/
@@ -303,5 +250,62 @@ watcher.on('unlinkDir', function(path) {
         io.sockets.emit('usbRemove', path);
    // }
 });
+
+function executeCommand(command){
+    switch(command.command){
+        case "play":
+            omx.play();
+            break;
+
+        case "pause":
+            omx.pause();
+            break;
+
+        case "stop":
+            omx.stop();
+            io.sockets.emit('mediaCommand', "lightsOn");
+            io.sockets.emit('changeRemoteLayout', 'normal');
+            break;
+
+        case "seekForward":
+            omx.seekForward();   
+            break;
+
+        case "seekBackward":
+            omx.seekBackward();   
+            break;
+
+        case "toggleSubtitles":
+            omx.toggleSubtitles();
+            break;
+
+        case "increaseVolume":
+            omx.increaseVolume();
+            break;
+
+        case "decreaseVolume":
+            omx.decreaseVolume();
+            break;
+
+        case "nextSubtitleStream":
+            omx.nextSubtitleStream();
+            break;    
+
+        case "previousSubtitleStream":
+            omx.previousSubtitleStream();
+            break;   
+
+        case "increaseSubtitleDelay":
+            omx.increaseSubtitleDelay();
+            break;   
+                
+        case "reduceSubtitleDelay":
+            omx.reduceSubtitleDelay();    
+                        
+        default:
+            break;
+
+    }
+}
 
 module.exports = sockets;
