@@ -141,12 +141,12 @@ html, body, #container {
     background-color: #0086b3;
 }
 
-#subtitles-increase-delay-button {
+#subtitles-reduce-delay-button {
     background-image: url("/images/cc-icons/subtitle-wait.svg");
     background-color: #0086b3;
 }
 
-#subtitles-reduce-delay-button {
+#subtitles-increase-delay-button {
     background-image: url("/images/cc-icons/subtitle-catch.svg");
     background-color: #0086b3;
 }
