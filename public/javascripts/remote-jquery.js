@@ -196,7 +196,7 @@ $(document).ready(function () {
     
     function currentActiveMenu(activeIndex){
         switch(activeIndex){
-            case 1:
+            case 5:
                 mediaChannel = "playVideo";
                 break;
 
