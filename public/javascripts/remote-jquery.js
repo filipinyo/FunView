@@ -3,7 +3,7 @@ var carousel;
 $(document).ready(function () {
     var socket = io.connect('http://' + utilities.localIPAdress + ':3000');    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
     carousel = $("#menu");  //ID OF DIV THAT CONTAINS ITEMSLIDE CAROUSEL -  WE ASSIGN IT TO VARIABLE TO USE IT
-    mediaChannel = "";
+     var mediaChannel;
 
     carousel.itemslide({    //SET THE STARTING MENU OF REMOTE CONTROL - CURRENTLY SET TO MUSIC
         start: 5,
@@ -37,7 +37,7 @@ $(document).ready(function () {
     carousel.on('changeActiveIndex',function(){ // WHEN WE TOUCH MENU CAROUSEL WE SEND THE COMMAND TO THE APPLICATION TO CHANGE SELECTED MENU
         var command = {};
         command.activeMenu = carousel.getActiveIndex();
-        mediaChannel = currentActiveMenu(carousel.getActiveIndex());
+        mediaChannel = currentActiveMenu(command.activeMenu);
         socket.emit('remoteCommand', JSON.stringify(command));
         //CLOSE VIDEO/PHOTO/MUSIC AND SET THE LAYOUT OF CONTROLLER TO NORMAL
         /*$('.controls').addClass('hidden');
@@ -197,12 +197,12 @@ $(document).ready(function () {
     
     function currentActiveMenu(activeIndex){
         switch(activeIndex){
-            case 5:
-                mediaChannel = "playVideo";
+            case 0:
+                return "playVideo";
                 break;
 
-            case 3:
-                mediaChannel = "playMusic";
+            case 2:
+                return "playMusic";
                 break; 
         }
     }
