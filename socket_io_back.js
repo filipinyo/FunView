@@ -154,12 +154,13 @@ sockets.init = function (server) {
         //IF VIDEO IS SELECTED, START PLAYING VIDEO
         socket.on("playVideo", function(video){
             video = JSON.parse(video);
-            
+            var lights = {};
+
             if(video.play !== null){
                 console.log("Playing " + video.play);
-
+                lights.lights = "lightsOut";
                 omx.play(video.play);
-                io.sockets.emit('mediaCommand', "lightsOut");
+                io.sockets.emit('mediaCommand', JSON.stringify(lights));
                 io.sockets.emit('changeRemoteLayout', 'video');
             }
 
