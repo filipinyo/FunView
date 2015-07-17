@@ -154,13 +154,13 @@ sockets.init = function (server) {
         //IF VIDEO IS SELECTED, START PLAYING VIDEO
         socket.on("playVideo", function(video){
             video = JSON.parse(video);
-            var lights = {};
+            var command = {};
 
             if(video.play !== null){
                 console.log("Playing " + video.play);
-                lights.lights = "lightsOut";
+                command.lights = "lightsOut";
                 omx.play(video.play);
-                io.sockets.emit('mediaCommand', JSON.stringify(lights));
+                io.sockets.emit('mediaCommand', JSON.stringify(command));
                 io.sockets.emit('changeRemoteLayout', 'video');
             }
 
@@ -264,7 +264,9 @@ function executeCommand(command){
 
         case "stop":
             exec("kill $(ps aux | grep omxplayer | awk 'NR==1 {print $2}')");
-            io.sockets.emit('mediaCommand', "lightsOn");
+            var command = {};
+            command.lights = "lightsOn";
+            io.sockets.emit('mediaCommand', command);
             io.sockets.emit('changeRemoteLayout', 'normal');
             omx.stop();
             break;
