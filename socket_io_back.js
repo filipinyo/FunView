@@ -175,6 +175,7 @@ sockets.init = function (server) {
 
                 case "stop":
                     omx.stop();
+                    io.sockets.emit('remoteCommand', "lightsOn");
                     io.sockets.emit('changeRemoteLayout', 'normal');
                     break;
 

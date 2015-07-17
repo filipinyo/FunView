@@ -16,7 +16,7 @@ a, a:hover, a:visited, a:active{
     color: white;
 }
 
-#lights-out {
+.lights-out {
     background-color: black;
 }
 
