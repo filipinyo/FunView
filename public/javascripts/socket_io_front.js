@@ -77,11 +77,11 @@ socket.on('mediaCommand', function (command) {
 
     //IF VIDEO IS BEING PLAYED, DARKEN THE BACKGROUND
     if(command == "lightsOut"){
-        $('*').addClass('lights-out');
+        $('.lights').addClass('lights-out');
     }
 
     if(command == "lightsOn"){
-        $('*').removeClass('lights-out');
+        $('.lights').removeClass('lights-out');
     }
 
     //CHECK WHICH CONTENT IS BEING DISPLAYED
