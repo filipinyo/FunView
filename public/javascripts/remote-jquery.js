@@ -37,6 +37,7 @@ $(document).ready(function () {
     carousel.on('changeActiveIndex',function(){ // WHEN WE TOUCH MENU CAROUSEL WE SEND THE COMMAND TO THE APPLICATION TO CHANGE SELECTED MENU
         var command = {};
         command.activeMenu = carousel.getActiveIndex();
+        mediaChannel = currentActiveMenu(carousel.getActiveIndex());
         socket.emit('remoteCommand', JSON.stringify(command));
         //CLOSE VIDEO/PHOTO/MUSIC AND SET THE LAYOUT OF CONTROLLER TO NORMAL
         /*$('.controls').addClass('hidden');
@@ -73,7 +74,7 @@ $(document).ready(function () {
         }
     });
 
-    //MOVEMENT AND UNIVERSAL CONTROLS ON REMOTE
+    //MOVEMENT ON REMOTE
 
     $('.button-row').on('click','#ok-button', function(){       //OK-PLAY
         var command = {};
@@ -118,7 +119,7 @@ $(document).ready(function () {
         socket.emit('remoteCommand', JSON.stringify(command));
     });
 
-    //VIDEO/MUSIC CONTROLS
+    //VIDEO CONTROLS
 
     $('.button-row').on('click','#play-button', function(){       //OK-PLAY
         var video = {};
@@ -180,7 +181,7 @@ $(document).ready(function () {
         socket.emit(mediaChannel, JSON.stringify(video));
     });
 
-    $('.button-row')mediaChannel,'#subtitles-next-button.button', function(){       //LOAD NEXT SUBTITLES
+    $('.button-row').on('click','#subtitles-next-button.button', function(){       //LOAD NEXT SUBTITLES
         var video = {};
         video.command = "nextSubtitleStream";
         socket.emit(mediaChannel, JSON.stringify(video));
