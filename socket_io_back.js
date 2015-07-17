@@ -159,7 +159,7 @@ sockets.init = function (server) {
                 console.log("Playing " + video.play);
 
                 omx.play(video.play);
-                io.sockets.emit('remoteCommand', "lightsOut");
+                io.sockets.emit('mediaCommand', "lightsOut");
                 io.sockets.emit('changeRemoteLayout', 'video');
             }
 
@@ -175,7 +175,7 @@ sockets.init = function (server) {
 
                 case "stop":
                     omx.stop();
-                    io.sockets.emit('remoteCommand', "lightsOn");
+                    io.sockets.emit('mediaCommand', "lightsOn");
                     io.sockets.emit('changeRemoteLayout', 'normal');
                     break;
 
