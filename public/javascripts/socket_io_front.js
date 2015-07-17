@@ -75,6 +75,11 @@ socket.on('mediaCommand', function (command) {
     var currentSelectedMenu = $('.selected').attr('id');
     var currentlyDisplayedFiles = "";
 
+    //IF VIDEO IS BEING PLAYED, DARKEN THE BACKGROUND
+    if(command == "lightsOut"){
+        $('html,body').css('background','black');
+    }
+
     //CHECK WHICH CONTENT IS BEING DISPLAYED
     switch(currentSelectedMenu){
         case "video-item":

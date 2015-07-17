@@ -159,7 +159,7 @@ sockets.init = function (server) {
                 console.log("Playing " + video.play);
 
                 omx.play(video.play);
-
+                io.sockets.emit('remoteCommand', "lightsOut");
                 io.sockets.emit('changeRemoteLayout', 'video');
             }
 
@@ -211,7 +211,7 @@ sockets.init = function (server) {
                     break;   
                 
                 case "reduceSubtitleDelay":
-                    omx.readuceSubtitleDelay;    
+                    omx.reduceSubtitleDelay();    
                         
                 default:
                     break;
