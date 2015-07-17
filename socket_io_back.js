@@ -263,6 +263,7 @@ function executeCommand(command){
 
         case "stop":
             omx.stop();
+            exec("killall omxplayer");
             io.sockets.emit('mediaCommand', "lightsOn");
             io.sockets.emit('changeRemoteLayout', 'normal');
             break;
