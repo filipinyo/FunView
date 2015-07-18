@@ -38,6 +38,10 @@ $(document).ready(function(){
         socket.emit("playMusic", JSON.stringify(music));
     });
 
+    $('.photo-page').on("click",".file-wrapper", function(){
+        socket.emit("showPhoto", "do-it");
+    });
+
 
     /*ON CLICK*/
     /*

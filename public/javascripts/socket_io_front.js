@@ -128,8 +128,6 @@ socket.on('mediaCommand', function (command) {
         if(currentlyDisplayedFiles === ".file-photo"){
             var pictureURL = $(currentlyDisplayedFiles +'.highlight').attr('data-file-path');
             $("a[href='" + pictureURL + "']").click(); 
-
-
         }
 
         if(currentlyDisplayedFiles === ".file-music"){
@@ -218,7 +216,7 @@ socket.on('mediaCommand', function (command) {
         switch(command.action){
 
             case "refresh":
-                location.reload();
+                location.reload(true);
                 break;
 
             case "close":
@@ -230,6 +228,7 @@ socket.on('mediaCommand', function (command) {
 
                     case "photo-item":
                         $('a[class="lb-close"]').click();
+                        socket.emit('closePhoto','close-it');
                         break;
 
                     case "music-item":

@@ -42,7 +42,6 @@ $(document).ready(function () {
         //CLOSE VIDEO/PHOTO/MUSIC AND SET THE LAYOUT OF CONTROLLER TO NORMAL
         /*$('.controls').addClass('hidden');
         $('#normal-controls').removeClass('hidden');*/
-
     });
 
     socket.on('changeRemoteLayout', function(data){
@@ -85,7 +84,6 @@ $(document).ready(function () {
     $('.button-row').on('click','#refresh-button', function(){  //REFRESH
         var command = {};
         command.action = "refresh";
-        command.selectedCategory = remoteLayoutType;
         socket.emit('remoteCommand', JSON.stringify(command));
     });
 

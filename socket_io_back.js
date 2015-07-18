@@ -181,6 +181,14 @@ sockets.init = function (server) {
             });*/
         });
 
+        socket.on("showPhoto", function(photo){
+            io.sockets.emit('changeRemoteLayout', 'photo');
+        });
+
+        socket.on("closePhoto", function(photo){
+            io.sockets.emit('changeRemoteLayout', 'normal')
+        });
+
         //RECIVE COMMAND FROM REMOTE
         socket.on("remoteCommand", function(command){
             command = JSON.parse(command);
@@ -266,7 +274,7 @@ function executeCommand(command){
             exec("kill $(ps aux | grep omxplayer | awk 'NR==1 {print $2}')");
             var command = {};
             command.lights = "lightsOn";
-            io.sockets.emit('mediaCommand', command);
+            io.sockets.emit('mediaCommand', JSON.stringify(command));
             io.sockets.emit('changeRemoteLayout', 'normal');
             omx.stop();
             break;
