@@ -307,7 +307,7 @@ function executeCommand(command){
             break;   
                 
         case "reduceSubtitleDelay":
-            omx.reduceSubtitleDelay();   
+            omx.decreaseSubtitleDelay();   
             break; 
                         
         default:
