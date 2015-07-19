@@ -12,6 +12,7 @@ socket.on('mediaCommand', function (command) {
     var currentSelectedMenu = $('.selected').attr('id');
     var currentlyDisplayedFiles = "";
 
+
     //IF VIDEO IS BEING PLAYED, DARKEN THE BACKGROUND
     if(command.lights === "lightsOut"){
         $('.lights').addClass('lights-out');
@@ -25,12 +26,28 @@ socket.on('mediaCommand', function (command) {
     switch(currentSelectedMenu){
         case "video-item":
             currentlyDisplayedFiles = ".file-video";
+
+            //IF ONE OF THE LAST FILES IS HIGHLIGHTED, LOAD MORE FILES    
+            var indexOfCurrentyHighlightedItem = $(currentlyDisplayedFiles +'.highlight').index();    
+            if(indexOfCurrentyHighlightedItem >= videoMaxAllowedFiles - 60 && videoFilesLoaded === true){
+                loadFiles(parsedVideos, videoLastAddedFile, videoMaxAllowedFiles, videoHtmlPage, videoHtmlFileType, videoHtmlClass);
+            }
             break;
         case "photo-item":
             currentlyDisplayedFiles = ".file-photo";
+
+            var indexOfCurrentyHighlightedItem = $(currentlyDisplayedFiles +'.highlight').index();    
+            if(indexOfCurrentyHighlightedItem >= photoMaxAllowedFiles - 60 && photoFilesLoaded === true){
+                loadFiles(parsedPhotos, photoLastAddedFile, photoMaxAllowedFiles, photoHtmlPage, photoHtmlFileType, photoHtmlClass);
+            }
             break;
         case "music-item":
             currentlyDisplayedFiles = ".file-music";
+
+            var indexOfCurrentyHighlightedItem = $(currentlyDisplayedFiles +'.highlight').index();    
+            if(indexOfCurrentyHighlightedItem >= musicMaxAllowedFiles - 60 && photoFilesLoaded === true){
+                loadFiles(parsedMusic, musicLastAddedFile, musicMaxAllowedFiles, musicHtmlPage, musicHtmlFileType, musicHtmlClass);
+            }
             break;
         case "browser-item":
             currentlyDisplayedFiles = ".file-video";
@@ -280,11 +297,13 @@ socket.on('mediaCommand', function (command) {
     * */
 
     $('.usb-devices').on('click','li', function(){
-        var usbName = $(this).text();
-        $('.file-wrapper').remove(); /*remove previous content*/
-        $('.btn-block').removeClass('btn-selected');
-        $(this).addClass('btn-selected');
-        socket.emit('usbSelected', usbName);
+        if(!$('this').hasClass('btn-selected')){
+           var usbName = $(this).text();
+            $('.file-wrapper').remove(); /*remove previous content*/
+            $('.btn-block').removeClass('btn-selected');
+            $(this).addClass('btn-selected');
+            socket.emit('usbSelected', usbName); 
+        }
     });
 
 

@@ -7,7 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('_Diploma2:server');
 var http = require('http');
-var sockets = require('../socket_io_back');
+var sockets = require('../funview');
 
 /**
  * Get port from environment and store in Express.

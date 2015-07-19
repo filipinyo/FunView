@@ -79,6 +79,8 @@ sockets.init = function (server) {
             usbMusic = [];
             usbGames = [];
 
+            io.sockets.emit('resetVars', 'reset');
+
             usbSelected = data;
 
             /*SCAN USB FILES/DIRECTORIES RECURSIVELY*/
@@ -134,19 +136,12 @@ sockets.init = function (server) {
                         }
                     }
 
-                    /*console.log(usbVideos);
-                    console.log(usbPhotos);*/
-                    /*console.log(usbVideos.length + ' ' + usbPhotos.length + ' ' + usbMusic.length + ' ' + usbGames.length);*/
                     /*SEND INFORMATION TO CLIENT ABOUT FILES AND THEIR TYPES*/
-                    socket.emit('loadVideoData', JSON.stringify(usbVideos));
-                    socket.emit('loadPhotoData', JSON.stringify(usbPhotos));
-                    socket.emit('loadMusicData', JSON.stringify(usbMusic));
-                    socket.emit('loadGamesData', JSON.stringify(usbGames));
-
-                    /*console.log(usbVideos);
-                    console.log(usbPhotos);
-                    console.log(usbMusic);
-                    console.log(usbGames);*/
+                    if(usbVideos != null){socket.emit('loadVideoData', JSON.stringify(usbVideos));}
+                    if(usbPhotos != null){socket.emit('loadPhotoData', JSON.stringify(usbPhotos));}
+                    if(usbMusic != null){socket.emit('loadMusicData', JSON.stringify(usbMusic));}
+                    if(usbGames != null){socket.emit('loadGamesData', JSON.stringify(usbGames));}
+                    
                 }
             });
         });
