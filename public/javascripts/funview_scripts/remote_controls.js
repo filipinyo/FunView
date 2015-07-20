@@ -37,11 +37,13 @@ $(document).ready(function () {
     carousel.on('changeActiveIndex',function(){ // WHEN WE TOUCH MENU CAROUSEL WE SEND THE COMMAND TO THE APPLICATION TO CHANGE SELECTED MENU
         var command = {};
         command.activeMenu = carousel.getActiveIndex();
-        mediaChannel = currentActiveMenu(command.activeMenu);
+        mediaChannel = currentActiveMenu(command.activeMenu); //GLOBAL VARIABLE WHICH SWITCHES CHANNELS OF SENDING THE COMMANDS
         socket.emit('remoteCommand', JSON.stringify(command));
         //CLOSE VIDEO/PHOTO/MUSIC AND SET THE LAYOUT OF CONTROLLER TO NORMAL
-        /*$('.controls').addClass('hidden');
-        $('#normal-controls').removeClass('hidden');*/
+        socket.emit('playVideo', 'stop');
+        socket.emit('playMusic', 'stop');
+        $('.controls').addClass('hidden');
+        $('#normal-controls').removeClass('hidden');
     });
 
     socket.on('changeRemoteLayout', function(data){
