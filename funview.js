@@ -157,6 +157,9 @@ sockets.init = function (server) {
                 omx.play(video.play);
                 io.sockets.emit('mediaCommand', JSON.stringify(command));
                 io.sockets.emit('changeRemoteLayout', 'video');
+
+                if()
+
             }
 
             executeCommand(video);
@@ -258,7 +261,15 @@ watcher.on('unlinkDir', function(path) {
 function executeCommand(command){
     switch(command.command){
         case "play":
-            omx.play();
+            //omx.play();
+            exec("omxplayer " + video.play, function(error, stdout, stderr){
+                console.log('stdout: ' + stdout);
+                console.log('stderr: ' + stderr);
+                if (error !== null) {
+                  console.log('Unsupported format: ' + error);
+                  io.sockets.emit('changeRemoteLayout', 'normal');
+                }
+            });
             break;
 
         case "pause":

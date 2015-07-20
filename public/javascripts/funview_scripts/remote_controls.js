@@ -119,7 +119,7 @@ $(document).ready(function () {
         socket.emit('remoteCommand', JSON.stringify(command));
     });
 
-    //VIDEO CONTROLS
+    //VIDEO/MUSIC CONTROLS
 
     $('.button-row').on('click','#play-button', function(){       //OK-PLAY
         var video = {};
