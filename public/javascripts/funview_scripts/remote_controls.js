@@ -40,10 +40,10 @@ $(document).ready(function () {
         mediaChannel = currentActiveMenu(command.activeMenu); //GLOBAL VARIABLE WHICH SWITCHES CHANNELS OF SENDING THE COMMANDS
         socket.emit('remoteCommand', JSON.stringify(command));
         //CLOSE VIDEO/PHOTO/MUSIC AND SET THE LAYOUT OF CONTROLLER TO NORMAL
-        socket.emit('playVideo', 'stop');
+        /*socket.emit('playVideo', 'stop');
         socket.emit('playMusic', 'stop');
         $('.controls').addClass('hidden');
-        $('#normal-controls').removeClass('hidden');
+        $('#normal-controls').removeClass('hidden');*/
     });
 
     socket.on('changeRemoteLayout', function(data){
