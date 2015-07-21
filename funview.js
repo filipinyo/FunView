@@ -151,14 +151,25 @@ sockets.init = function (server) {
             video = JSON.parse(video);
             
             if(video.name !== null){
-                omx.play(video.name);
-                if(omx.isPlaying()){
+                omx.play(video.name, function(err){
+                    if(err != null){
+                        console.log('There has been an error' + err);
+                    } else {
+                        var command = {};
+                        console.log("Playing " + video.name);
+                        command.lights = "lightsOut";
+                        io.sockets.emit('mediaCommand', JSON.stringify(command));
+                        io.sockets.emit('changeRemoteLayout', 'video');
+                    }
+                    
+                });
+                /*if(omx.isPlaying()){
                     var command = {};
                     console.log("Playing " + video.name);
                     command.lights = "lightsOut";
                     io.sockets.emit('mediaCommand', JSON.stringify(command));
                     io.sockets.emit('changeRemoteLayout', 'video');
-                }
+                }*/
             }
 
             executeCommand(video);
