@@ -149,37 +149,51 @@ sockets.init = function (server) {
         //IF VIDEO IS SELECTED, START PLAYING VIDEO
         socket.on("playVideo", function(video){
             video = JSON.parse(video);
-            var command = {};
-
-            if(video.play !== null){
-                exec("omxplayer " + video.play, function(error, stdout, stderr){
+            
+            if(video.name !== null){
+                exec("omxplayer " + video.name, function(error, stdout, stderr){
                     console.log('stdout: ' + stdout);
                     console.log('stderr: ' + stderr);
                     if (error !== null) {
                         console.log('Unsupported format: ' + error);
                         io.sockets.emit('changeRemoteLayout', 'normal');
                     } else {
-                        console.log("Playing " + video.play);
+                        var command = {};
+                        console.log("Playing " + video.name);
                         command.lights = "lightsOut";
-                        omx.play(video.play);
+                        omx.play(video.name);
                         io.sockets.emit('mediaCommand', JSON.stringify(command));
                         io.sockets.emit('changeRemoteLayout', 'video');
                     }
                 });
             }
 
-            executeCommand(video);
+            executeCommand(video, video);
         });
 
         //IF MUSIC IS SELECTED, START PLAYING MUSIC
         socket.on("playMusic", function(music){
             music = JSON.parse(music);
-            console.log("Playing " + music.name);
-
-            omx.play(music.name);
-
-            io.sockets.emit('changeRemoteLayout', 'music');
-            executeCommand(music);
+            
+            if(music.name !== null){
+                exec("omxplayer " + music.name, function(error, stdout, stderr){
+                    console.log('stdout: ' + stdout);
+                    console.log('stderr: ' + stderr);
+                    if (error !== null) {
+                        console.log('Unsupported format: ' + error);
+                        io.sockets.emit('changeRemoteLayout', 'normal');
+                    } else {
+                        var command = {};
+                        console.log("Playing " + music.name);
+                        command.lights = "lightsOut";
+                        omx.play(music.name);
+                        io.sockets.emit('mediaCommand', JSON.stringify(command));
+                        io.sockets.emit('changeRemoteLayout', 'music');
+                    }
+                });
+            }
+            
+            executeCommand(music, music);
             /*exec("killall vlc", function(){
                 exec("vlc --fullscreen " + '"' + data + '"');
             });*/
@@ -267,7 +281,7 @@ watcher.on('unlinkDir', function(path) {
 function executeCommand(command, media){
     switch(command.command){
         case "play":
-            exec("omxplayer " + video.play, function(error, stdout, stderr){
+            exec("omxplayer " + media.name, function(error, stdout, stderr){
                 console.log('stdout: ' + stdout);
                 console.log('stderr: ' + stderr);
                 if (error !== null) {
