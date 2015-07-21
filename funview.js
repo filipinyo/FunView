@@ -152,8 +152,6 @@ sockets.init = function (server) {
             
             if(video.name !== null){
                 exec("omxplayer " + video.name, function(error, stdout, stderr){
-                    console.log('stdout: ' + stdout);
-                    console.log('stderr: ' + stderr);
                     if (error !== null) {
                         console.log('Unsupported format: ' + error);
                         io.sockets.emit('changeRemoteLayout', 'normal');
@@ -176,8 +174,6 @@ sockets.init = function (server) {
             
             if(music.name !== null){
                 exec("omxplayer " + music.name, function(error, stdout, stderr){
-                    console.log('stdout: ' + stdout);
-                    console.log('stderr: ' + stderr);
                     if (error !== null) {
                         console.log('Unsupported format: ' + error);
                         io.sockets.emit('changeRemoteLayout', 'normal');
@@ -280,8 +276,6 @@ function executeCommand(command, media){
     switch(command.command){
         case "play":
             exec("omxplayer " + media.name, function(error, stdout, stderr){
-                console.log('stdout: ' + stdout);
-                console.log('stderr: ' + stderr);
                 if (error !== null) {
                   console.log('Unsupported format: ' + error);
                   io.sockets.emit('changeRemoteLayout', 'normal');
