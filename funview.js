@@ -152,14 +152,20 @@ sockets.init = function (server) {
             var command = {};
 
             if(video.play !== null){
-                console.log("Playing " + video.play);
-                command.lights = "lightsOut";
-                omx.play(video.play);
-                io.sockets.emit('mediaCommand', JSON.stringify(command));
-                io.sockets.emit('changeRemoteLayout', 'video');
-
-                if()
-
+                exec("omxplayer " + video.play, function(error, stdout, stderr){
+                    console.log('stdout: ' + stdout);
+                    console.log('stderr: ' + stderr);
+                    if (error !== null) {
+                        console.log('Unsupported format: ' + error);
+                        io.sockets.emit('changeRemoteLayout', 'normal');
+                    } else {
+                        console.log("Playing " + video.play);
+                        command.lights = "lightsOut";
+                        omx.play(video.play);
+                        io.sockets.emit('mediaCommand', JSON.stringify(command));
+                        io.sockets.emit('changeRemoteLayout', 'video');
+                    }
+                });
             }
 
             executeCommand(video);
@@ -258,10 +264,9 @@ watcher.on('unlinkDir', function(path) {
    // }
 });
 
-function executeCommand(command){
+function executeCommand(command, media){
     switch(command.command){
         case "play":
-            //omx.play();
             exec("omxplayer " + video.play, function(error, stdout, stderr){
                 console.log('stdout: ' + stdout);
                 console.log('stderr: ' + stderr);

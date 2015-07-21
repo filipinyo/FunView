@@ -225,7 +225,7 @@ socket.on('mediaCommand', function (command) {
 
     $('.video-page').on("click",".file-wrapper", function(){
         var video = {}; 
-        video.play = $(this).attr("data-file-path");
+        video.name = $(this).attr("data-file-path");
         socket.emit("playVideo", JSON.stringify(video));
     });
 
