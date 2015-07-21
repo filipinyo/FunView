@@ -151,18 +151,14 @@ sockets.init = function (server) {
             video = JSON.parse(video);
             
             if(video.name !== null){
-                exec("omxplayer " + video.name, function(error, stdout, stderr){
-                    if (error !== null) {
-                        console.log('Unsupported format: ' + error);
-                        io.sockets.emit('changeRemoteLayout', 'normal');
-                    } else {
-                        var command = {};
-                        console.log("Playing " + video.name);
-                        command.lights = "lightsOut";
-                        io.sockets.emit('mediaCommand', JSON.stringify(command));
-                        io.sockets.emit('changeRemoteLayout', 'video');
-                    }
-                });
+                omx.play(video.name);
+                if(omx.isPlaying()){
+                    var command = {};
+                    console.log("Playing " + video.name);
+                    command.lights = "lightsOut";
+                    io.sockets.emit('mediaCommand', JSON.stringify(command));
+                    io.sockets.emit('changeRemoteLayout', 'video');
+                }
             }
 
             executeCommand(video);
@@ -173,18 +169,12 @@ sockets.init = function (server) {
             music = JSON.parse(music);
             
             if(music.name !== null){
-                exec("omxplayer " + music.name, function(error, stdout, stderr){
-                    if (error !== null) {
-                        console.log('Unsupported format: ' + error);
-                        io.sockets.emit('changeRemoteLayout', 'normal');
-                    } else {
-                        var command = {};
-                        console.log("Playing " + music.name);
-                        command.lights = "lightsOut";
-                        io.sockets.emit('mediaCommand', JSON.stringify(command));
-                        io.sockets.emit('changeRemoteLayout', 'music');
-                    }
-                });
+                omx.play(music.name);
+                if(omx.isPlaying()){
+                    var command = {};
+                    console.log("Playing " + music.name);
+                    io.sockets.emit('changeRemoteLayout', 'music');
+                }
             }
 
             executeCommand(music);
@@ -275,6 +265,7 @@ watcher.on('unlinkDir', function(path) {
 function executeCommand(command){
     switch(command.command){
         case "play":
+            if(!omx.isPlaying())
             omx.play();
             break;
 
