@@ -165,7 +165,7 @@ sockets.init = function (server) {
                 });
             }
 
-            executeCommand(video, video);
+            executeCommand(video);
         });
 
         //IF MUSIC IS SELECTED, START PLAYING MUSIC
@@ -187,7 +187,7 @@ sockets.init = function (server) {
                 });
             }
 
-            executeCommand(music, music);
+            executeCommand(music);
             /*exec("killall vlc", function(){
                 exec("vlc --fullscreen " + '"' + data + '"');
             });*/
@@ -272,15 +272,10 @@ watcher.on('unlinkDir', function(path) {
    // }
 });
 
-function executeCommand(command, media){
+function executeCommand(command){
     switch(command.command){
         case "play":
-            exec("omxplayer " + media.name, function(error, stdout, stderr){
-                if (error !== null) {
-                  console.log('Unsupported format: ' + error);
-                  io.sockets.emit('changeRemoteLayout', 'normal');
-                }
-            });
+            omx.play();
             break;
 
         case "pause":
