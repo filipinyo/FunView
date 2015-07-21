@@ -20,8 +20,8 @@ How to start:
 
 # I'm currently working on
 
-1. Remote design
-2. Omxplayer commands
+1. Error handling on unplayable formats
+2. Implementing youtube downloader
 
 Everything is published under MIT license, the only thing that I'm stil figuring out is how license the icons that have been used (I purchased them for commercial usage and i'm not sure if I can use them in "open" projects)
 
