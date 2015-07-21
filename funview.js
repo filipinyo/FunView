@@ -161,7 +161,6 @@ sockets.init = function (server) {
                         var command = {};
                         console.log("Playing " + video.name);
                         command.lights = "lightsOut";
-                        omx.play(video.name);
                         io.sockets.emit('mediaCommand', JSON.stringify(command));
                         io.sockets.emit('changeRemoteLayout', 'video');
                     }
@@ -186,13 +185,12 @@ sockets.init = function (server) {
                         var command = {};
                         console.log("Playing " + music.name);
                         command.lights = "lightsOut";
-                        omx.play(music.name);
                         io.sockets.emit('mediaCommand', JSON.stringify(command));
                         io.sockets.emit('changeRemoteLayout', 'music');
                     }
                 });
             }
-            
+
             executeCommand(music, music);
             /*exec("killall vlc", function(){
                 exec("vlc --fullscreen " + '"' + data + '"');
