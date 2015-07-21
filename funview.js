@@ -173,11 +173,15 @@ sockets.init = function (server) {
             music = JSON.parse(music);
             
             if(music.name !== null){
-                omx.play(music.name);
-                if(omx.isPlaying()){
-                    var command = {};
-                    console.log("Playing " + music.name);
-                    io.sockets.emit('changeRemoteLayout', 'music');
+                try {
+                    omx.play(music.name);
+                    if(omx.isPlaying()){
+                        var command = {};
+                        console.log("Playing " + music.name);
+                        io.sockets.emit('changeRemoteLayout', 'music');
+                    }
+                } catch (err) {
+                    console.log("There has been an error: " + err);
                 }
             }
 
@@ -269,8 +273,13 @@ watcher.on('unlinkDir', function(path) {
 function executeCommand(command){
     switch(command.command){
         case "play":
-            if(!omx.isPlaying())
-            omx.play();
+            if(!omx.isPlaying()){
+                try{
+                    omx.play();
+                } catch (err) {
+                    console.log("There has been an error: " + err);
+                }
+            }
             break;
 
         case "pause":
