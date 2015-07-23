@@ -1,0 +1,116 @@
+/*
+    BACKGROUND COLORS: #0099CC;
+    BUTTON REMOTE COLORS: #00cc99;
+    VOLUME: 22, 194, 251;
+    #FF8300
+    #E65F58
+    #00CC99
+    #0086B3
+*/
+
+html, body, #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /*background-image: url("/images/skulls.png");*/
+    background-color: #0099CC;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.hidden {
+    -webkit-backface-visibility: hidden;
+}
+
+/*YOUTUBE RELATED CONTENT*/
+
+#search-bar {
+    width: 100vw;
+    height: 5rem;
+    display: block;
+    float: left
+    margin: auto;
+    border: solid 1px black;
+}
+
+#back-button {
+    width: 15vw;
+    height: 3rem;
+    display: block;
+    float: right;
+    margin: auto;
+    background-image: url("/images/Youtube.svg");
+    background-size: contain;
+    background-color: #0086b3;
+}
+
+input {
+    text-align: center;
+}
+
+#videos {
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.video-title {
+    font-size: 1.6rem
+}
+
+li {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    list-style: none;   
+}
+
+iframe {
+    display: block;
+    margin: auto;
+    width: 90vw;
+    height: 55vw;
+    border-top-left-radius: 2rem;
+    border-top-right-radius: 2rem;
+}
+
+.download-bar {
+    height: 10rem;
+    width: 90vw;
+    display: block;
+    margin: auto;
+    background-color: #0086b3;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.download-buttons{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.button {
+    display: inline-block;
+    height: 5rem;
+    width: 5rem;
+    background-color: gray;
+    margin-right: 1rem;
+}
+
+.download-video {
+    background-image: url('/images/cc-icons/0018-music.svg');   
+    
+}
+
+.download-song {
+    height: 
+}
+
+.status-button {
+    height: 
+}

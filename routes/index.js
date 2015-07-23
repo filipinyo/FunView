@@ -6,7 +6,7 @@ var port = '3000';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Fun View', localAddress: localIPAdress, port: port});
+  res.render('main-app/index', { title: 'Fun View', localAddress: localIPAdress, port: port});
 });
 
 module.exports = router;

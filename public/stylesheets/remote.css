@@ -2,6 +2,9 @@
     BACKGROUND COLORS: #0099CC;
     BUTTON REMOTE COLORS: #00cc99;
     VOLUME: 22, 194, 251;
+    #FF8300
+    #E65F58
+    #00CC99
 */
 
 html, body, #container {
@@ -84,6 +87,10 @@ html, body, #container {
     background-color: #0086b3;
 }
 
+#youtube-downloader-button {
+    background-image: url("/images/cc-icons/0410-youtube3.svg");
+    background-color: #0086b3;
+}
 /*MEDIA CONTROLS*/
 
 #fast-left-button {

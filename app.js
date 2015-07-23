@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var youtube = require('./routes/youtube-downloader');
 var remote = require('./routes/remote');
 
 var app = express();
@@ -29,7 +29,7 @@ app.use(express.static('/media/' + currentUser)); //MAKE USB PUBLICLY AVAILABLE 
 
 app.use('/', routes);
 app.use('/remote', remote);
-app.use('/users', users);
+app.use('/youtube', youtube);
 
 /*STUPIDITY*/
 foo = "/media/user/usb/stuff";
