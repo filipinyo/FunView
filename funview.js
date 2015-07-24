@@ -20,6 +20,8 @@ var currentUser = "" /*process.env.USER;*/ //CHECK WHICH USER IS RUNNING NODE - 
 var usbDevices = [];
 var usbSelected = "";
 var utilities = {}; //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
+var ytdl = require('ytdl-core'); //YOUTUBE DOWNLOADER
+
 
 console.log(localIPAdress);
 utilities.localIPAdress = localIPAdress;
@@ -82,6 +84,8 @@ sockets.init = function (server) {
             io.sockets.emit('resetVars', 'reset');
 
             usbSelected = data;
+
+            console.log("USB " + usbSelected + " has been selected");
 
             /*SCAN USB FILES/DIRECTORIES RECURSIVELY*/
             recursive(usbSelected, function (err, files) {
@@ -206,6 +210,32 @@ sockets.init = function (server) {
             io.sockets.emit("mediaCommand", JSON.stringify(command));
         });
 
+        socket.on("youtubeDownloadVideo", function(videoInfo){
+            videoInfo = JSON.parse(videoInfo);
+            console.log("Trying to download video " + videoInfo.name);
+            try{
+                ytdl(videoInfo.url, {filter: function(format) { return format.container === 'mp4';}})
+                .pipe(fs.createWriteStream(usbSelected + "/FRANKEN/" + videoInfo.name + ".mp4"));
+            } catch(err){
+                console.log('There has been an error when downloading video');
+            }
+            
+        });
+
+        socket.on("youtubeDownloadSong", function(videoInfo){
+            videoInfo = JSON.parse(videoInfo);
+            console.log("Trying to download song " + videoInfo.name);
+            try{
+                ytdl(videoInfo.url, {filter: 'audioonly'})
+                .pipe(fs.createWriteStream(usbSelected + "/FRANKEN/" + videoInfo.name + ".mp3").addListener('finish', function(){
+                    console.log("Finished downloading!");
+                    io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
+                })
+                );
+            } catch(err){
+                console.log('There has been an error when downloading video' + err);
+            }
+        });
 
         //socket.on("updateRemoteLayoutOnServer", function(remoteLayout){
         //    io.sockets.emit("updateRemoteLayoutOnMask", remoteLayout);

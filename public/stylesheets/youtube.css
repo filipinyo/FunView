@@ -6,6 +6,7 @@
     #E65F58
     #00CC99
     #0086B3
+    #0086B3
 */
 
 html, body, #container {
@@ -50,6 +51,10 @@ input {
     text-align: center;
 }
 
+.video {
+    margin-bottom: 3rem;
+}
+
 #videos {
     padding: 0;
     margin-top: 1.5rem;
@@ -76,7 +81,7 @@ iframe {
 }
 
 .download-bar {
-    height: 10rem;
+    height: 23vh;
     width: 90vw;
     display: block;
     margin: auto;
@@ -96,21 +101,46 @@ iframe {
 
 .button {
     display: inline-block;
-    height: 5rem;
-    width: 5rem;
-    background-color: gray;
-    margin-right: 1rem;
+    height: 18vw;
+    width: 18vw;
+    /*background-color: #00688A;*/
+    margin-left: 10vw;
+    background-size: contain;
+    border-radius: 1rem;
+}
+
+p {
+    padding-top: 0.5rem;
+}
+
+li:nth-child(1){
+    margin-left: 0;
 }
 
 .download-video {
-    background-image: url('/images/cc-icons/0018-music.svg');   
-    
+    background-image: url('/images/cc-icons/0043-file-video.svg');   
 }
 
 .download-song {
-    height: 
+    background-image: url('/images/cc-icons/0041-file-music.svg');
 }
 
+/*STATUS ICON*/
 .status-button {
-    height: 
+    background-image: url('/images/cc-icons/0126-spinner4.svg');
 }
+
+.finishedDownloading{
+    background-color: green;
+}
+
+.rotate {
+    -webkit-animation:rotate 4s linear infinite;
+    -moz-animation:rotate 4s linear infinite;
+    animation:rotate 4s linear infinite;
+}
+
+
+@-moz-keyframes rotate { 100% { -moz-transform: rotate(359deg); } }
+@-webkit-keyframes rotate { 100% { -webkit-transform: rotate(359deg); } }
+@keyframes rotate { 100% { -webkit-transform: rotate(359deg); transform:rotate(359deg); } }
