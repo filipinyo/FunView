@@ -225,6 +225,11 @@ sockets.init = function (server) {
                     .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp4").addListener('finish', function(){
                         console.log("Finished downloading video!");
                         io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
+                        var command = {};
+                        command.action = "refresh";
+                        io.sockets.emit('mediaCommand', JSON.stringify(command));
+                        command.action = "youtubeSuccess";
+                        io.sockets.emit('mediaCommand', JSON.stringify(command));
                     })
                     );
                 } catch(err){
@@ -248,6 +253,11 @@ sockets.init = function (server) {
                     .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp3").addListener('finish', function(){
                         console.log("Finished downloading song!");
                         io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
+                        var command = {};
+                        command.action = "refresh";
+                        io.sockets.emit('mediaCommand', JSON.stringify(command));
+                        command.action = "youtubeSuccess";
+                        io.sockets.emit('mediaCommand', JSON.stringify(command));
                     })
                     );
                 } catch(err){

@@ -268,10 +268,6 @@ socket.on('mediaCommand', function (command) {
                 $('.content-item').addClass('hidden');
                 $('#games-content').removeClass('hidden');
                 break;
-            case 'browser-item':
-                $('.content-item').addClass('hidden');
-                $('#browser-content').removeClass('hidden');
-                break;
             case 'settings-item':
                 $('.content-item').addClass('hidden');
                 $('#settings-content').removeClass('hidden');

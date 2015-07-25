@@ -40,7 +40,7 @@ a, a:hover, a:visited, a:active{
     position: relative;
     width: 12rem;
     min-width: 12rem;
-    height: 77rem;
+    height: 65rem;
     margin: auto; /*ZA VERTIKALNO PORAVNAVO*/
     margin-left: 1rem;
     margin-right: 1rem;
@@ -57,7 +57,7 @@ a, a:hover, a:visited, a:active{
 }
 
 .menu-item:first-of-type {
-    margin-top: 6rem;
+    margin-top: 7rem;
 }
 
 .enable-scroll {

@@ -1,12 +1,12 @@
 //CAROUSEL OBJECT - MAIN MENU SLIDER ON REMOTE WEBSITE - FOR MOBILE PHONES
 var carousel;
 $(document).ready(function () {
-    var socket = io.connect('http://' + utilities.localIPAdress + ':3000');    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
+    var socket = io('http://' + utilities.localIPAdress + ':3000', {reconnectionDelayMax: 5000});    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
     carousel = $("#menu");  //ID OF DIV THAT CONTAINS ITEMSLIDE CAROUSEL -  WE ASSIGN IT TO VARIABLE TO USE IT
      var mediaChannel;
 
     carousel.itemslide({    //SET THE STARTING MENU OF REMOTE CONTROL - CURRENTLY SET TO MUSIC
-        start: 5,
+        start: 4,
         duration: 500
     });
 

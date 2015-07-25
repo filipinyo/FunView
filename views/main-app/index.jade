@@ -6,18 +6,17 @@ block content
             #video-item.menu-item
             #photo-item.menu-item
             #music-item.menu-item
-            #browser-item.menu-item
             #settings-item.menu-item
         #content
             #home-content.content-item
                 include content/home.jade
+            #youtube-content.content-item.hidden
+                include content/youtube.jade
             #video-content.content-item.hidden
                 include content/videos.jade
             #photo-content.content-item.hidden
                 include content/photos.jade
             #music-content.content-item.hidden
                 include content/music.jade
-            #browser-content.content-item.hidden
-                include content/browser.jade
             #settings-content.content-item.hidden
                 include content/settings.jade
