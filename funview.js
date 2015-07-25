@@ -73,7 +73,7 @@ sockets.init = function (server) {
         }
 
         /*WHEN USER SELECTS USB ON FRONT PAGE - load data into table on the front page*/
-        socket.on('usbSelected', function(dat){
+        socket.on('usbSelected', function(data){
             /*IF OTHER USB HAS BEEN SELECTED, EMPTY THE ARRAY AND CONTENT LISTS BEFORE FILLING IT WITH NEW DATA*/
 
             usbVideos = [];
