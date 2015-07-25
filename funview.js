@@ -159,7 +159,8 @@ sockets.init = function (server) {
                     omx.play(video.name);
                     if(omx.isPlaying()){
                         var command = {};
-                        console.log("Playing " + video.name);
+                        if(video.name !== null){console.log("Playing " + video.name);}
+                        if(video.command !== null){console.log("Command " + video.command + " recived");}
                         command.lights = "lightsOut";
                         io.sockets.emit('mediaCommand', JSON.stringify(command));
                         io.sockets.emit('changeRemoteLayout', 'video');
@@ -181,7 +182,8 @@ sockets.init = function (server) {
                     omx.play(music.name);
                     if(omx.isPlaying()){
                         var command = {};
-                        console.log("Playing " + music.name);
+                        if(music.name !== null){console.log("Playing " + music.name);}
+                        if(music.command !== null){console.log("Command " + music.command + " recived");}
                         io.sockets.emit('changeRemoteLayout', 'music');
                     }
                 } catch (err) {
