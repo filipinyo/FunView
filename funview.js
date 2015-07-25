@@ -400,7 +400,7 @@ function executeCommand(command){
 
 omx.on('end', function() {
     var command = {};
-    console.log("Playing " + video.name);
+    console.log("OMXPLAYER has stopped playing media");
     command.lights = "lightsOn";
     io.sockets.emit('mediaCommand', JSON.stringify(command));
 }); 
