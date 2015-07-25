@@ -131,7 +131,7 @@ li:nth-child(1){
 }
 
 .finishedDownloading{
-    background-color: green;
+    background-image: url('/images/cc-icons/finish.svg');
 }
 
 .rotate {

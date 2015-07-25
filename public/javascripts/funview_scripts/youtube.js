@@ -52,5 +52,11 @@ $('#videos').on('click','.download-song', function(){
 
 socket.on("youtubeDownloadFinish", function(videoInfo){
 	videoInfo = JSON.parse(videoInfo);
-	$('iframe[data-video-url]="' + videoInfo.url + '"').removeClass('rotate').addClass('finishedDownloading');
+	$('.video').has("iframe[data-video-url='" + videoInfo.url +  "']").find('.status-button').removeClass('rotate').addClass('finishedDownloading');
+});
+
+socket.on("warning", function(data){
+	data = JSON.parse(data);
+	$('.video').has("iframe[data-video-url='" + data.url +  "']").find('.status-button').removeClass('rotate')
+	alert(data.warning);
 });

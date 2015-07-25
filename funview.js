@@ -73,7 +73,7 @@ sockets.init = function (server) {
         }
 
         /*WHEN USER SELECTS USB ON FRONT PAGE - load data into table on the front page*/
-        socket.on('usbSelected', function(data){
+        socket.on('usbSelected', function(dat){
             /*IF OTHER USB HAS BEEN SELECTED, EMPTY THE ARRAY AND CONTENT LISTS BEFORE FILLING IT WITH NEW DATA*/
 
             usbVideos = [];
@@ -211,29 +211,48 @@ sockets.init = function (server) {
         });
 
         socket.on("youtubeDownloadVideo", function(videoInfo){
-            videoInfo = JSON.parse(videoInfo);
-            console.log("Trying to download video " + videoInfo.name);
-            try{
-                ytdl(videoInfo.url, {filter: function(format) { return format.container === 'mp4';}})
-                .pipe(fs.createWriteStream(usbSelected + "/FRANKEN/" + videoInfo.name + ".mp4"));
-            } catch(err){
-                console.log('There has been an error when downloading video');
+            if(usbSelected === ""){
+                videoInfo = JSON.parse(videoInfo);
+                console.log("User tried to download video, but usb was not loaded/selected!");
+                videoInfo.warning = "Please mount and select usb device first!"
+                socket.emit('warning', JSON.stringify(videoInfo));
+            } else {
+                videoInfo = JSON.parse(videoInfo);
+                videoInfo.name = videoInfo.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+                console.log("Trying to download video " + videoInfo.name);
+                try{
+                    ytdl(videoInfo.url, {filter: function(format) { return format.container === 'mp4';}})
+                    .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp4").addListener('finish', function(){
+                        console.log("Finished downloading video!");
+                        io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
+                    })
+                    );
+                } catch(err){
+                    console.log('There has been an error when downloading video');
+                }
             }
-            
         });
 
         socket.on("youtubeDownloadSong", function(videoInfo){
-            videoInfo = JSON.parse(videoInfo);
-            console.log("Trying to download song " + videoInfo.name);
-            try{
-                ytdl(videoInfo.url, {filter: 'audioonly'})
-                .pipe(fs.createWriteStream(usbSelected + "/FRANKEN/" + videoInfo.name + ".mp3").addListener('finish', function(){
-                    console.log("Finished downloading!");
-                    io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
-                })
-                );
-            } catch(err){
-                console.log('There has been an error when downloading video' + err);
+            if(usbSelected === ""){
+                videoInfo = JSON.parse(videoInfo);
+                console.log("User tried to download video, but usb was not loaded/selected!");
+                videoInfo.warning = "Please mount and select usb device first!"
+                socket.emit('warning', JSON.stringify(videoInfo));
+            } else {
+                videoInfo = JSON.parse(videoInfo);
+                videoInfo.name = videoInfo.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
+                console.log("Trying to download song " + videoInfo.name);
+                try{
+                    ytdl(videoInfo.url, {filter: 'audioonly'})
+                    .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp3").addListener('finish', function(){
+                        console.log("Finished downloading song!");
+                        io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
+                    })
+                    );
+                } catch(err){
+                    console.log('There has been an error when downloading video' + err);
+                }
             }
         });
 
