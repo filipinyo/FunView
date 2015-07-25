@@ -403,6 +403,7 @@ omx.on('end', function() {
     console.log("OMXPLAYER has stopped playing media");
     command.lights = "lightsOn";
     io.sockets.emit('mediaCommand', JSON.stringify(command));
+    io.sockets.emit('changeRemoteLayout', 'normal');
 }); 
 
 module.exports = sockets;
