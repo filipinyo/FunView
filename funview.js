@@ -396,4 +396,13 @@ function executeCommand(command){
     }
 }
 
+//WHEN OMXPLAYER STOPS PLAYING CONTENT, BE SURE TO TURN THE LIGHTS ON THE PAGE BACK ON:
+
+omx.on('end', function() {
+    var command = {};
+    console.log("Playing " + video.name);
+    command.lights = "lightsOn";
+    io.sockets.emit('mediaCommand', JSON.stringify(command));
+}); 
+
 module.exports = sockets;
