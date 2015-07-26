@@ -3,7 +3,11 @@ var carousel;
 $(document).ready(function () {
     var socket = io('http://' + utilities.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true});    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
     carousel = $("#menu");  //ID OF DIV THAT CONTAINS ITEMSLIDE CAROUSEL -  WE ASSIGN IT TO VARIABLE TO USE IT
-     var mediaChannel;
+    var mediaChannel;
+
+    $('body').on('click', function(){
+        if(!socket.connected){socket.io.reconnect();}
+    });
 
     carousel.itemslide({    //SET THE STARTING MENU OF REMOTE CONTROL - CURRENTLY SET TO MUSIC
         start: 4,
