@@ -6,7 +6,7 @@ $(document).ready(function () {
     var mediaChannel;
 
     $('body').on('click', function(){
-        if(!socket.connected){socket.io.reconnect(); alert('trying to reconnect!');}
+        if(!socket.connected){socket.socket.reconnect();}
     });
 
     carousel.itemslide({    //SET THE STARTING MENU OF REMOTE CONTROL - CURRENTLY SET TO MUSIC
