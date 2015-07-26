@@ -156,7 +156,7 @@ sockets.init = function (server) {
             
             if(video.name !== null){
                 try{
-                    omx.play(video.name, {'--align': 'center', '--font-size': 60});
+                    omx.play(video.name, {'--align': 'center', '--font-size': 65});
                     if(omx.isPlaying()){
                         var command = {};
                         if(video.name !== null){console.log("Playing " + video.name);}
