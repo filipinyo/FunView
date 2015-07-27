@@ -1,0 +1,65 @@
+192.168.0.15
+Server is running and listening port 3000
+Directory /media/filip has been added
+Directory /media/floppy0 has been added
+Directory /media/floppy has been added
+[SOCKET-CONNECTED] Br72cH97VfdrjCtNAAAA
+[SOCKET-CONNECTED] 7oqY_WAs1zQdf2AbAAAB
+[COMMAND] Menu 3 has been selected
+[SOCKET-CONNECTED] ER6e9HcFXZOt-G_xAAAC
+[COMMAND] Move right command recived
+[COMMAND] Move left command recived
+[COMMAND] Move left command recived
+[COMMAND] refresh command has been executed
+[SOCKET-DISCONNECTED] 7oqY_WAs1zQdf2AbAAAB
+[0mGET / [32m200 [0m238.819 ms - 3360[0m
+[SOCKET-DISCONNECTED] ER6e9HcFXZOt-G_xAAAC
+[0mGET / [32m200 [0m63.201 ms - 3360[0m
+[0mGET /stylesheets/bootstrap.min.css [32m200 [0m11.072 ms - 117305[0m
+[0mGET /stylesheets/font-awesome.min.css [32m200 [0m2.525 ms - 23739[0m
+[0mGET /stylesheets/style.css [32m200 [0m0.974 ms - 4932[0m
+[0mGET /stylesheets/lightbox.css [32m200 [0m0.917 ms - 3898[0m
+[0mGET /javascripts/other_scripts/jquery-2.1.4.min.js [32m200 [0m0.868 ms - 84345[0m
+[0mGET /javascripts/other_scripts/jquery-1.11.0.min.js [32m200 [0m1.522 ms - 96380[0m
+[0mGET /javascripts/other_scripts/lightbox.min.js [32m200 [0m0.938 ms - 7800[0m
+[0mGET /javascripts/other_scripts/bootstrap.min.js [32m200 [0m0.857 ms - 35951[0m
+[0mGET /javascripts/other_scripts/jquery.slimscroll.min.js [32m200 [0m0.877 ms - 4679[0m
+[0mGET /javascripts/other_scripts/jquery.visible.min.js [32m200 [0m0.935 ms - 803[0m
+[0mGET /javascripts/funview_scripts/front_app_file_handling.js [32m200 [0m0.907 ms - 5628[0m
+[0mGET /javascripts/funview_scripts/front_app_controls.js [32m200 [0m2.185 ms - 11732[0m
+[0mGET /javascripts/other_scripts/jquery.scrollTo.min.js [32m200 [0m1.074 ms - 2444[0m
+[0mGET /stylesheets/bootstrap.min.css [32m200 [0m0.910 ms - 117305[0m
+[0mGET /stylesheets/font-awesome.min.css [32m200 [0m1.604 ms - 23739[0m
+[0mGET /stylesheets/style.css [32m200 [0m1.197 ms - 4932[0m
+[0mGET /stylesheets/lightbox.css [32m200 [0m0.906 ms - 3898[0m
+[0mGET /javascripts/other_scripts/jquery-2.1.4.min.js [32m200 [0m0.909 ms - 84345[0m
+[0mGET /javascripts/other_scripts/jquery-1.11.0.min.js [32m200 [0m1.241 ms - 96380[0m
+[0mGET /javascripts/other_scripts/lightbox.min.js [32m200 [0m1.289 ms - 7800[0m
+[0mGET /javascripts/other_scripts/bootstrap.min.js [32m200 [0m0.935 ms - 35951[0m
+[0mGET /javascripts/other_scripts/jquery.slimscroll.min.js [32m200 [0m1.461 ms - 4679[0m
+[0mGET /javascripts/other_scripts/jquery.visible.min.js [32m200 [0m0.925 ms - 803[0m
+[0mGET /javascripts/funview_scripts/front_app_file_handling.js [32m200 [0m1.146 ms - 5628[0m
+[0mGET /javascripts/funview_scripts/front_app_controls.js [32m200 [0m1.070 ms - 11732[0m
+[0mGET /javascripts/other_scripts/jquery.scrollTo.min.js [32m200 [0m0.622 ms - 2444[0m
+[0mGET /images/close.png [32m200 [0m0.679 ms - 280[0m
+[0mGET /images/loading.gif [32m200 [0m1.164 ms - 8476[0m
+[0mGET /images/prev.png [32m200 [0m0.651 ms - 1360[0m
+[0mGET /images/next.png [32m200 [0m0.772 ms - 1350[0m
+[0mGET /images/close.png [32m200 [0m0.753 ms - 280[0m
+[0mGET /images/loading.gif [32m200 [0m0.706 ms - 8476[0m
+[0mGET /images/prev.png [32m200 [0m0.630 ms - 1360[0m
+[0mGET /images/next.png [32m200 [0m0.971 ms - 1350[0m
+[0mGET /images/iPhone.svg [32m200 [0m0.675 ms - 1422[0m
+[0mGET /images/iPhone.svg [32m200 [0m0.633 ms - 1422[0m
+[SOCKET-CONNECTED] gGxiTtoy9KIqIXFnAAAD
+[SOCKET-CONNECTED] srzhffiDSMwqX5FHAAAE
+[0mGET /images/bg.jpg [32m200 [0m2.442 ms - 659158[0m
+[0mGET /images/Moviescene.svg [32m200 [0m1.038 ms - 7034[0m
+[0mGET /images/Nightphoto.svg [32m200 [0m1.083 ms - 3752[0m
+[0mGET /images/Musical.svg [32m200 [0m0.668 ms - 4155[0m
+[0mGET /images/HDD.svg [32m200 [0m0.634 ms - 6233[0m
+[0mGET /images/bg.jpg [32m200 [0m2.458 ms - 659158[0m
+[0mGET /images/Moviescene.svg [32m200 [0m0.944 ms - 7034[0m
+[0mGET /images/Nightphoto.svg [32m200 [0m1.131 ms - 3752[0m
+[0mGET /images/Musical.svg [32m200 [0m0.734 ms - 4155[0m
+[0mGET /images/HDD.svg [32m200 [0m0.633 ms - 6233[0m

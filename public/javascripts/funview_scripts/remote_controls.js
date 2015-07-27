@@ -1,12 +1,16 @@
 //CAROUSEL OBJECT - MAIN MENU SLIDER ON REMOTE WEBSITE - FOR MOBILE PHONES
 var carousel;
 $(document).ready(function () {
-    var socket = io('http://' + utilities.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true});    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
+    var socket = io('http://' + utilities.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true, reconnectionAttempts: 'Infinity'});    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
     carousel = $("#menu");  //ID OF DIV THAT CONTAINS ITEMSLIDE CAROUSEL -  WE ASSIGN IT TO VARIABLE TO USE IT
     var mediaChannel;
 
-    $('body').on('click', function(){
-        if(!socket.connected){socket.socket.reconnect();}
+    $('body').on('click',function(){
+        if(socket.connected === false && socket.connected !== undefined){
+            socket = io('http://' + utilities.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true, reconnectionAttempts: 'Infinity'});
+            console.log('Reconnecting to server');
+            alert('Reconnecting to server');
+        }
     });
 
     carousel.itemslide({    //SET THE STARTING MENU OF REMOTE CONTROL - CURRENTLY SET TO MUSIC

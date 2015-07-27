@@ -21,6 +21,7 @@ var usbDevices = [];
 var usbSelected = "";
 var utilities = {}; //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
 var ytdl = require('ytdl-core'); //YOUTUBE DOWNLOADER
+var colors = require('colors'); //FOR COLORING THE CONSOLE OUTPUT
 
 
 console.log(localIPAdress);
@@ -71,6 +72,12 @@ sockets.init = function (server) {
         for(var i = 0; i < usbDevices.length; i++) {
             io.sockets.connected[socket.id].emit('usbAdd', usbDevices[i]);
         }
+
+        console.log('[SOCKET-CONNECTED]'.bgBlue + ' ' + socket.id);
+
+        socket.on('disconnect', function(){
+            console.log('[SOCKET-DISCONNECTED]'.bgBlue + ' ' + socket.id);
+        });
 
         /*WHEN USER SELECTS USB ON FRONT PAGE - load data into table on the front page*/
         socket.on('usbSelected', function(data){
@@ -159,14 +166,14 @@ sockets.init = function (server) {
                     omx.play(video.name, {'--align': 'center', '--font-size': 65});
                     if(omx.isPlaying()){
                         var command = {};
-                        if(video.name !== null){console.log("Playing " + video.name);}
-                        if(video.command !== null){console.log("Command " + video.command + " recived");}
+                        if(video.name !== null){console.log("[OMXPLAYER]".bgYellow + " Playing " + video.name);}
+                        if(video.command !== null){console.log("[OMXPLAYER]".bgYellow + " Command " + video.command + " recived");}
                         command.lights = "lightsOut";
                         io.sockets.emit('mediaCommand', JSON.stringify(command));
                         io.sockets.emit('changeRemoteLayout', 'video');
                     }
                 } catch (err){
-                    console.log("There has been an error: " + err);
+                    console.log("[ERROR]".bgRed + " There has been an error: " + err);
                 }  
             }
 
@@ -182,12 +189,12 @@ sockets.init = function (server) {
                     omx.play(music.name);
                     if(omx.isPlaying()){
                         var command = {};
-                        if(music.name !== null){console.log("Playing " + music.name);}
-                        if(music.command !== null){console.log("Command " + music.command + " recived");}
+                        if(music.name !== null){console.log("[OMXPLAYER]".bgYellow + " Playing " + music.name);}
+                        if(music.command !== null){console.log("[OMXPLAYER]".bgYellow + " Command " + music.command + " recived");}
                         io.sockets.emit('changeRemoteLayout', 'music');
                     }
                 } catch (err) {
-                    console.log("There has been an error: " + err);
+                    console.log("[ERROR]".bgRed + " There has been an error: " + err);
                 }
             }
 
@@ -208,24 +215,28 @@ sockets.init = function (server) {
         //RECIVE COMMAND FROM REMOTE
         socket.on("remoteCommand", function(command){
             command = JSON.parse(command);
-            console.log(command + " command has been executed");
+            if(command.activeMenu !== undefined){console.log("[COMMAND]".bgGreen + " Menu " + command.activeMenu + " has been selected");}
+            if(command.move !== undefined){console.log("[COMMAND]".bgGreen + " Move " + command.move + " command recived");}
+            if(command.command !== undefined){console.log("[COMMAND]".bgGreen + " " + command.command + " command has been executed");}
+            if(command.action !== undefined){console.log("[COMMAND]".bgGreen + " " + command.action + " command has been executed");}
+            if(command.select !== undefined){console.log("[COMMAND]".bgGreen + " Select command has been executed");}
             io.sockets.emit("mediaCommand", JSON.stringify(command));
         });
 
         socket.on("youtubeDownloadVideo", function(videoInfo){
             if(usbSelected === ""){
                 videoInfo = JSON.parse(videoInfo);
-                console.log("User tried to download video, but usb was not loaded/selected!");
+                console.log("[WARNING]".bgCyan + " User tried to download video, but usb was not loaded/selected!");
                 videoInfo.warning = "Please mount and select usb device first!"
                 socket.emit('warning', JSON.stringify(videoInfo));
             } else {
                 videoInfo = JSON.parse(videoInfo);
                 videoInfo.name = videoInfo.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
-                console.log("Trying to download video " + videoInfo.name);
+                console.log("[YOU".bgWhite + "TUBE]".bgRed + " Trying to download video " + videoInfo.name);
                 try{
                     ytdl(videoInfo.url, {filter: function(format) { return format.container === 'mp4';}})
                     .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp4").addListener('finish', function(){
-                        console.log("Finished downloading video!");
+                        console.log("[YOU".bgWhite + "TUBE]".bgRed + " Finished downloading video!");
                         io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
                         var command = {};
                         command.action = "refresh";
@@ -235,7 +246,7 @@ sockets.init = function (server) {
                     })
                     );
                 } catch(err){
-                    console.log('There has been an error when downloading video');
+                    console.log("[ERROR]".bgRed + ' There has been an error when downloading video');
                 }
             }
         });
@@ -243,17 +254,17 @@ sockets.init = function (server) {
         socket.on("youtubeDownloadSong", function(videoInfo){
             if(usbSelected === ""){
                 videoInfo = JSON.parse(videoInfo);
-                console.log("User tried to download video, but usb was not loaded/selected!");
+                console.log("[WARNING]".bgCyan + " User tried to download video, but usb was not loaded/selected!");
                 videoInfo.warning = "Please mount and select usb device first!"
                 socket.emit('warning', JSON.stringify(videoInfo));
             } else {
                 videoInfo = JSON.parse(videoInfo);
                 videoInfo.name = videoInfo.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
-                console.log("Trying to download song " + videoInfo.name);
+                console.log("[YOU".bgWhite + "TUBE]".bgRed + " Trying to download song " + videoInfo.name);
                 try{
                     ytdl(videoInfo.url, {filter: 'audioonly'})
                     .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp3").addListener('finish', function(){
-                        console.log("Finished downloading song!");
+                        console.log("[YOU".bgWhite + "TUBE]".bgRed + " Finished downloading song!");
                         io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
                         var command = {};
                         command.action = "refresh";
@@ -263,11 +274,11 @@ sockets.init = function (server) {
                     })
                     );
                 } catch(err){
-                    console.log('There has been an error when downloading video' + err);
+                    console.log("[ERROR]".bgRed + ' There has been an error when downloading video' + err);
                 }
             }
         });
-
+        
         //socket.on("updateRemoteLayoutOnServer", function(remoteLayout){
         //    io.sockets.emit("updateRemoteLayoutOnMask", remoteLayout);
             /*switch(remoteLayout.type){
@@ -338,7 +349,7 @@ function executeCommand(command){
                 try{
                     omx.play();
                 } catch (err) {
-                    console.log("There has been an error: " + err);
+                    console.log("[ERROR]".bgRed + " There has been an error: " + err);
                 }
             }
             break;
@@ -402,7 +413,7 @@ function executeCommand(command){
 
 omx.on('end', function() {
     var command = {};
-    console.log("OMXPLAYER has stopped playing media");
+    console.log("[OMXPLAYER]".bgYellow + " OMXPLAYER has stopped playing media");
     command.lights = "lightsOn";
     io.sockets.emit('mediaCommand', JSON.stringify(command));
     io.sockets.emit('changeRemoteLayout', 'normal');
