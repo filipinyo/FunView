@@ -1,17 +1,35 @@
 //CAROUSEL OBJECT - MAIN MENU SLIDER ON REMOTE WEBSITE - FOR MOBILE PHONES
 var carousel;
 $(document).ready(function () {
-    var socket = io('http://' + utilities.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true, reconnectionAttempts: 'Infinity'});    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
+    var socket = io.connect('http://' + utilities.localIPAdress + ':3000');    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
     carousel = $("#menu");  //ID OF DIV THAT CONTAINS ITEMSLIDE CAROUSEL -  WE ASSIGN IT TO VARIABLE TO USE IT
     var mediaChannel;
+    var lastSync = 0;   //THE LAST TIME WE SYNCHRONIZED
+    var syncInterval = 5000; //INTERVALL OF CHECKING SYNHRONIZATIO
 
-    $('body').on('click',function(){
-        if(socket.connected === false && socket.connected !== undefined){
-            socket = io('http://' + utilities.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true, reconnectionAttempts: 'Infinity'});
+    function syncPage() {
+        lastSync = new Date().getTime(); //set last sync to be now
+        updatePage(); //do your stuff
+    }
+
+    setInterval(function() {
+        var now = new Date().getTime();
+        if ((now - lastSync) > syncInterval ) {
+            if(socket.connected === false){
+                socket = io.connect('http://' + utilities.localIPAdress + ':3000', {forceNew: true}); 
+                console.log('Reconnecting to server');
+                syncPage();
+            }
+        }
+    }, 3000); //check every 3 seconds whether a minute has passed since last sync
+
+    /*$('body').on('click',function(){
+        if(socket.connected === false || socket.connected === undefined){
+            socket = io.connect('http://' + utilities.localIPAdress + ':3000', {forceNew: true}); 
             console.log('Reconnecting to server');
             alert('Reconnecting to server');
         }
-    });
+    });*/
 
     carousel.itemslide({    //SET THE STARTING MENU OF REMOTE CONTROL - CURRENTLY SET TO MUSIC
         start: 4,

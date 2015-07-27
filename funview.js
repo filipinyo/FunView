@@ -16,7 +16,7 @@ var fs = require('fs');
 var exec = require('child_process').exec; /*EXECUTE SHELL COMMANDS*/
 var omx = require('omx-manager'); //MODULE FOR CONTROLLING OMX PLAYER
 var localIPAdress = require('address').ip(); //MODULE USED FOR UTILITIES - WE USE IT FOR GETTING OUR LOCAL IP ADDRESS
-var currentUser = "" /*process.env.USER;*/ //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
+var currentUser = process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
 var usbDevices = [];
 var usbSelected = "";
 var utilities = {}; //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
@@ -92,7 +92,7 @@ sockets.init = function (server) {
 
             usbSelected = data;
 
-            console.log("USB " + usbSelected + " has been selected");
+            console.log("[COMMAND]".bgGreen + " " + usbSelected + " has been selected");
 
             /*SCAN USB FILES/DIRECTORIES RECURSIVELY*/
             recursive(usbSelected, function (err, files) {
@@ -226,17 +226,17 @@ sockets.init = function (server) {
         socket.on("youtubeDownloadVideo", function(videoInfo){
             if(usbSelected === ""){
                 videoInfo = JSON.parse(videoInfo);
-                console.log("[WARNING]".bgCyan + " User tried to download video, but usb was not loaded/selected!");
+                console.log("[WARNING]".bgMagenta + " User tried to download video, but usb was not loaded/selected!");
                 videoInfo.warning = "Please mount and select usb device first!"
                 socket.emit('warning', JSON.stringify(videoInfo));
             } else {
                 videoInfo = JSON.parse(videoInfo);
                 videoInfo.name = videoInfo.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
-                console.log("[YOU".bgWhite + "TUBE]".bgRed + " Trying to download video " + videoInfo.name);
+                console.log("[YOU".black.bgWhite + "TUBE]".bgRed + " Trying to download video " + videoInfo.name);
                 try{
                     ytdl(videoInfo.url, {filter: function(format) { return format.container === 'mp4';}})
                     .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp4").addListener('finish', function(){
-                        console.log("[YOU".bgWhite + "TUBE]".bgRed + " Finished downloading video!");
+                        console.log("[YOU".black.bgWhite + "TUBE]".bgRed + " Finished downloading video!");
                         io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
                         var command = {};
                         command.action = "refresh";
@@ -254,17 +254,17 @@ sockets.init = function (server) {
         socket.on("youtubeDownloadSong", function(videoInfo){
             if(usbSelected === ""){
                 videoInfo = JSON.parse(videoInfo);
-                console.log("[WARNING]".bgCyan + " User tried to download video, but usb was not loaded/selected!");
+                console.log("[WARNING]".bgMagenta + " User tried to download video, but usb was not loaded/selected!");
                 videoInfo.warning = "Please mount and select usb device first!"
                 socket.emit('warning', JSON.stringify(videoInfo));
             } else {
                 videoInfo = JSON.parse(videoInfo);
                 videoInfo.name = videoInfo.name.replace(/[`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '');
-                console.log("[YOU".bgWhite + "TUBE]".bgRed + " Trying to download song " + videoInfo.name);
+                console.log("[YOU".black.bgWhite + "TUBE]".bgRed + " Trying to download song " + videoInfo.name);
                 try{
                     ytdl(videoInfo.url, {filter: 'audioonly'})
                     .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp3").addListener('finish', function(){
-                        console.log("[YOU".bgWhite + "TUBE]".bgRed + " Finished downloading song!");
+                        console.log("[YOU".black.bgWhite + "TUBE]".bgRed + " Finished downloading song!");
                         io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
                         var command = {};
                         command.action = "refresh";

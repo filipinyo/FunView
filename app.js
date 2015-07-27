@@ -10,7 +10,7 @@ var youtube = require('./routes/youtube-downloader');
 var remote = require('./routes/remote');
 
 var app = express();
-var currentUser = ""/*process.env.USER*/;
+var currentUser = process.env.USER;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
