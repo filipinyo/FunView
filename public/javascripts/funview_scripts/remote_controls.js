@@ -4,32 +4,21 @@ $(document).ready(function () {
     var socket = io.connect('http://' + utilities.localIPAdress + ':3000');    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
     carousel = $("#menu");  //ID OF DIV THAT CONTAINS ITEMSLIDE CAROUSEL -  WE ASSIGN IT TO VARIABLE TO USE IT
     var mediaChannel;
-    var lastSync = 0;   //THE LAST TIME WE SYNCHRONIZED
-    var syncInterval = 5000; //INTERVALL OF CHECKING SYNHRONIZATIO
+    var lastTouchTime = 0;   //THE LAST TIME WE TOUCHED THE REMOTE'S SCREEN
+    var allowedIdleTime = 20000; //TIME THAT IS ALLOWED TO PASS BEFORE WE KILL THE SOCKET. NECESSARY ON RECONNECTION OF REMOTE TO SERVER.
 
-    function syncPage() {
-        lastSync = new Date().getTime(); //set last sync to be now
-        updatePage(); //do your stuff
-    }
+    $('body').on('click', function(){   //ON BUTTON CLICK, CHECK IF SOCKET IS CONNECTED, IF IT ISN'T RECONNECT IT
+        checkConnection();
+    });
 
-    setInterval(function() {
+    setInterval(function() { //CHECK IF USER WAS ACTIVE ON REMOTE IN LAST 20 SECONDS - IF HE WASN'T, KILL EXSISTING SOCKET AND CREATE NEW ONE
         var now = new Date().getTime();
-        if ((now - lastSync) > syncInterval ) {
-            if(socket.connected === false){
-                socket = io.connect('http://' + utilities.localIPAdress + ':3000', {forceNew: true}); 
-                console.log('Reconnecting to server');
-                syncPage();
-            }
+        if ((now + lastTouchTime) > allowedIdleTime + now) {
+            socket.disconnect();
         }
-    }, 3000); //check every 3 seconds whether a minute has passed since last sync
+        lastTouchTime = lastTouchTime + 3000;
+    }, 3000); 
 
-    /*$('body').on('click',function(){
-        if(socket.connected === false || socket.connected === undefined){
-            socket = io.connect('http://' + utilities.localIPAdress + ':3000', {forceNew: true}); 
-            console.log('Reconnecting to server');
-            alert('Reconnecting to server');
-        }
-    });*/
 
     carousel.itemslide({    //SET THE STARTING MENU OF REMOTE CONTROL - CURRENTLY SET TO MUSIC
         start: 4,
@@ -61,6 +50,7 @@ $(document).ready(function () {
     });
 
     carousel.on('changeActiveIndex',function(){ // WHEN WE TOUCH MENU CAROUSEL WE SEND THE COMMAND TO THE APPLICATION TO CHANGE SELECTED MENU
+        checkConnection();
         var command = {};
         command.activeMenu = carousel.getActiveIndex();
         mediaChannel = currentActiveMenu(command.activeMenu); //GLOBAL VARIABLE WHICH SWITCHES CHANNELS OF SENDING THE COMMANDS
@@ -233,4 +223,11 @@ $(document).ready(function () {
         }
     }
 
+    function checkConnection(){
+        lastTouchTime = 0;
+        if(socket.connected === false){
+            socket = io.connect('http://' + utilities.localIPAdress + ':3000', {forceNew: true}); 
+            console.log('Reconnecting to server');
+        }
+    }
 });
