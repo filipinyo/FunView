@@ -44,7 +44,7 @@ input {
     display: block;
     border: solid 1px black;
     border-radius: 1rem;
-    font-size: 3rem;
+    font-size: 1.5rem;
     text-align: center;
     margin: auto;
 }
@@ -87,4 +87,12 @@ li {
 
 .back-button {
     background-image: url('/images/cc-icons/0102-undo.svg');
+}
+
+.unconfirmed-button {
+    background-image: url('/images/cc-icons/0274-checkmark2.svg');
+}
+
+.confirmed-button {
+    background-image: url('/images/cc-icons/0273-checkmark.svg');
 }

@@ -5,20 +5,20 @@ block content
         #touch-area
             #normal-controls.controls
                 .button-row
-                    .button.unused
+                    a(href="/settings")#settings-button.button
                     #up-button.button
-                    .button.unused
+                    #shut-down-button.button
                 .button-row
                     #left-button.button
                     #ok-button.button
                     #right-button.button
                 .button-row
-                    .button.unused
-                    #down-button.button
-                    .button.unused
-                .button-row
                     a(href="/youtube")#youtube-downloader-button.button
-                    #shut-down-button.button
+                    #down-button.button
+                    #refresh-button.button
+                //.button-row
+                    a(href="/youtube")#youtube-downloader-button.button
+                    .button.unused
                     #refresh-button.button
             #video-controls.controls.hidden
                 .button-row

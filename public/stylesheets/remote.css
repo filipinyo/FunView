@@ -96,6 +96,12 @@ html, body, #container {
     background-image: url("/images/cc-icons/shutDown.svg");
     background-color: #0086b3;
 }
+
+#settings-button {
+    background-image: url('/images/cc-icons/0149-cog.svg');
+    background-color: #0086b3;
+}
+
 /*MEDIA CONTROLS*/
 
 #fast-left-button {
@@ -222,7 +228,7 @@ li {
     background-color: #0086b3;
     background-repeat: no-repeat;
     background-position: center;
-    border: 1px solid #314E55;
+    border: 1px solid black;
     margin-right: 0.2rem;
     text-align: center;
 }

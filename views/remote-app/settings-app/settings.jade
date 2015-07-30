@@ -2,8 +2,8 @@ extends layout-settings
 
 block content
     #container
-        h1(style="text-align: center; color: white") Settings
+        h1(style="text-align: center; color: white")
         form(action="#")
             input(id="youtubeAPI" type="text" placeholder="Insert your Youtube API key" name="youtubeAPI").input-field
-            a(href="/youtube").back-button.control-button
-            .confirm-button.control-button(type="confirm")
+            a(href="/remote").back-button.control-button
+            .unconfirmed-button.control-button(type="confirm")
