@@ -111,6 +111,13 @@ $(document).ready(function () {
         socket.emit('remoteCommand', JSON.stringify(command));
     });
 
+    $('.button-row').on('click','#shut-down-button', function(){    //CLOSE
+        var command = "shutDown";
+        if(confirm("Are you sure you want to shutdown?")){
+            socket.emit('shutDown', command);
+        }
+    });
+
     $('.button-row').on('click','#right-button', function(){    //MOVE RIGHT
         var command = {};
         command.move = "right";

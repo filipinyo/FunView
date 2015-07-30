@@ -16,7 +16,7 @@ var fs = require('fs');
 var exec = require('child_process').exec; /*EXECUTE SHELL COMMANDS*/
 var omx = require('omx-manager'); //MODULE FOR CONTROLLING OMX PLAYER
 var localIPAdress = require('address').ip(); //MODULE USED FOR UTILITIES - WE USE IT FOR GETTING OUR LOCAL IP ADDRESS
-var currentUser = process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
+var currentUser = ""; //process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
 var usbDevices = [];
 var usbSelected = "";
 var utilities = {}; //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
@@ -212,6 +212,10 @@ sockets.init = function (server) {
             io.sockets.emit('changeRemoteLayout', 'normal')
         });
 
+        socket.on("shutDown", function(command){
+            if(command === "shutDown"){exec('sudo shutdown -r now');}
+        });
+
         //RECIVE COMMAND FROM REMOTE
         socket.on("remoteCommand", function(command){
             command = JSON.parse(command);
@@ -330,16 +334,14 @@ watcher.on('addDir', function(path) {
 * */
 
 watcher.on('unlinkDir', function(path) {
-    /*if(path == '/media/' + currentUser){
-        return true;
-    } else {*/
-        log('Directory', path, 'has been removed');
-        var indexOfRemovedUsb = usbDevices.indexOf(path);
-        if(indexOfRemovedUsb >= 0){
-            usbDevices.splice(indexOfRemovedUsb,1);
-        }
-        io.sockets.emit('usbRemove', path);
-   // }
+    log('Directory', path, 'has been removed');
+    var indexOfRemovedUsb = usbDevices.indexOf(path);
+    if(indexOfRemovedUsb >= 0){
+        usbDevices.splice(indexOfRemovedUsb,1);
+        if(usbSelected === path){usbSelected = "";}
+    }
+    io.sockets.emit('usbRemove', path);
+
 });
 
 function executeCommand(command){

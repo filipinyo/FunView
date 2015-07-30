@@ -91,6 +91,11 @@ html, body, #container {
     background-image: url("/images/cc-icons/0410-youtube3.svg");
     background-color: #0086b3;
 }
+
+#shut-down-button {
+    background-image: url("/images/cc-icons/shutDown.svg");
+    background-color: #0086b3;
+}
 /*MEDIA CONTROLS*/
 
 #fast-left-button {
