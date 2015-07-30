@@ -19,15 +19,14 @@ var localIPAdress = require('address').ip(); //MODULE USED FOR CONFIG - WE USE I
 var currentUser = ""; //process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
 var usbDevices = [];
 var usbSelected = "";
-var config = {}; //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
+var config = require('./config/config.json'); //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
 var ytdl = require('ytdl-core'); //YOUTUBE DOWNLOADER
 var colors = require('colors'); //FOR COLORING THE CONSOLE OUTPUT
 
-
-console.log(localIPAdress);
 config.localIPAdress = localIPAdress;
 
-fs.writeFileSync("./public/javascripts/funview_scripts/config.js", "var config = " + JSON.stringify(config) + ";");
+fs.writeFileSync("./config/config.json", JSON.stringify(config));
+fs.writeFileSync("./public/javascripts/config_scripts/config.js", "var config = " + JSON.stringify(config));
 
 //ALLOWED EXTENSIONS
 /*
@@ -77,6 +76,12 @@ sockets.init = function (server) {
 
         socket.on('disconnect', function(){
             console.log('[SOCKET-DISCONNECTED]'.bgBlue + ' ' + socket.id);
+        });
+
+        socket.on('changeSettings', function(settings){
+            console.log("[COMMAND]".bgGreen + " Settings have been updated");
+            config.youtubeAPI = settings;
+            fs.writeFileSync("./public/javascripts/config_scripts/config.js", "var config = " + JSON.stringify(config) + ";");
         });
 
         /*WHEN USER SELECTS USB ON FRONT PAGE - load data into table on the front page*/

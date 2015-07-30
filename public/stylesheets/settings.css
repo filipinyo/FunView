@@ -1,0 +1,90 @@
+/*
+    BACKGROUND COLORS: #0099CC;
+    BUTTON REMOTE COLORS: #00cc99;
+    VOLUME: 22, 194, 251;
+    #FF8300
+    #E65F58
+    #00CC99
+    #0086B3
+    #0086B3
+*/
+
+html, body, #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    /*background-image: url("/images/skulls.png");*/
+    background-color: #0099CC;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.hidden {
+    -webkit-backface-visibility: hidden;
+}
+
+/*YOUTUBE RELATED CONTENT*/
+
+#back-button {
+    width: 15vw;
+    height: 3rem;
+    display: block;
+    float: right;
+    margin: auto;
+    background-image: url("/images/Youtube.svg");
+    background-size: contain;
+    background-color: #0086b3;
+}
+
+input {
+    width: 90vw;
+    height: 5rem;
+    display: block;
+    border: solid 1px black;
+    border-radius: 1rem;
+    font-size: 3rem;
+    text-align: center;
+    margin: auto;
+}
+
+.video {
+    margin-bottom: 3rem;
+}
+
+#videos {
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.video-title {
+    font-size: 1.6rem
+}
+
+li {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    list-style: none;   
+}
+
+.control-button {
+    display: inline-block;
+    height: 25vw;
+    width: 25vw;
+    background-color: #0086B3;
+    background-size: contain;
+    border-radius: 1rem;
+    border: 1px solid black;
+    margin-left: 16.667vw;
+    margin-top: 5rem;
+}
+
+.settings-button {
+    background-image: url('/images/cc-icons/0149-cog.svg');
+}
+
+.back-button {
+    background-image: url('/images/cc-icons/0102-undo.svg');
+}

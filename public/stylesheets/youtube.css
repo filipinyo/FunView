@@ -7,6 +7,7 @@
     #00CC99
     #0086B3
     #0086B3
+    #0086B3
 */
 
 html, body, #container {
@@ -19,6 +20,20 @@ html, body, #container {
     background-repeat: no-repeat;
     background-size: cover;
     overflow-x: hidden;
+}
+
+.alert {
+    width: 95vw;
+    display: block;
+    margin: auto;
+}
+
+button {
+    display: block;
+    margin: auto;
+    margin-top: 2rem;
+    height: 3rem;
+
 }
 
 .hidden {
@@ -109,6 +124,18 @@ iframe {
     border-radius: 1rem;
 }
 
+.control-button {
+    display: inline-block;
+    height: 25vw;
+    width: 25vw;
+    background-color: #0086B3;
+    background-size: contain;
+    border-radius: 1rem;
+    border: 1px solid black;
+    margin-left: 16.667vw;
+    margin-top: 5rem;
+}
+
 p {
     padding-top: 0.5rem;
 }
@@ -128,6 +155,14 @@ li:nth-child(1){
 /*STATUS ICON*/
 .status-button {
     background-image: url('/images/cc-icons/0126-spinner4.svg');
+}
+
+.settings-button {
+    background-image: url('/images/cc-icons/0149-cog.svg');
+}
+
+.back-button {
+    background-image: url('/images/cc-icons/0102-undo.svg');
 }
 
 .finishedDownloading{

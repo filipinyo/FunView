@@ -1,17 +1,6 @@
 //CAROUSEL OBJECT - MAIN MENU SLIDER ON REMOTE WEBSITE - FOR MOBILE PHONES
 var carousel;
-var config;
 $(document).ready(function () {
-
-    /*LOAD CONFIGURATION SETTINGS FROM JSON FILE*/
-    $.ajax({
-        url: '/config/config.json',
-        async: false,
-        dataType: 'json',
-        success: function(data){
-            config = data;
-        }
-    });
 
     var socket = io.connect('http://' + config.localIPAdress + ':3000');    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
     carousel = $("#menu");  //ID OF DIV THAT CONTAINS ITEMSLIDE CAROUSEL -  WE ASSIGN IT TO VARIABLE TO USE IT

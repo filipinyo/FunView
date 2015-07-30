@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var youtube = require('./routes/youtube-downloader');
 var remote = require('./routes/remote');
+var settings = require('./routes/settings');
 
 var app = express();
 var currentUser = ""//process.env.USER;
@@ -30,6 +31,7 @@ app.use(express.static('/media/' + currentUser)); //MAKE USB PUBLICLY AVAILABLE 
 app.use('/', routes);
 app.use('/remote', remote);
 app.use('/youtube', youtube);
+app.use('/settings', settings);
 
 /*STUPIDITY*/
 foo = "/media/user/usb/stuff";

@@ -1,15 +1,3 @@
-var config = "";
-
-/*GET CONFIGURATION SETTINGS*/
-$.ajax({
-	url: '/config/config.json',
-	async: false,
-	dataType: 'json',
-	success: function(data){
-		config = data;
-	}
-})
-
 var socket = io('http://' + config.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true});
 
 $('form').on('submit', function(e){
@@ -38,7 +26,7 @@ $('form').on('submit', function(e){
 
 function init(){
 
-	gapi.client.setApiKey('AIzaSyBiuwKPz9V3Ee9hwXl7LROVZ4rEllDMc9E');
+	gapi.client.setApiKey(config.youtubeAPI);
 	gapi.client.load("youtube", "v3", function(){
 		//Youtube api is ready!
 	});
@@ -72,3 +60,7 @@ socket.on("warning", function(data){
 	$('.video').has("iframe[data-video-url='" + data.url +  "']").find('.status-button').removeClass('rotate')
 	alert(data.warning);
 });
+
+if(config.youtubeAPI === null || config.youtubeAPI === undefined){
+	$('#videos').append("<p class='alert alert-warning'>If you want to download youtube videos/music, you have to insert your youtube api key in the settings! If you want to, but don't know how to obtain your youtube API, <a href='https://www.youtube.com/watch?v=Im69kzhpR3I'>you can watch this guide</a>!</p>")
+}
