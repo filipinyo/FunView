@@ -1,7 +1,19 @@
 //CAROUSEL OBJECT - MAIN MENU SLIDER ON REMOTE WEBSITE - FOR MOBILE PHONES
 var carousel;
+var config;
 $(document).ready(function () {
-    var socket = io.connect('http://' + utilities.localIPAdress + ':3000');    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
+
+    /*LOAD CONFIGURATION SETTINGS FROM JSON FILE*/
+    $.ajax({
+        url: '/config/config.json',
+        async: false,
+        dataType: 'json',
+        success: function(data){
+            config = data;
+        }
+    });
+
+    var socket = io.connect('http://' + config.localIPAdress + ':3000');    //CONNECT TO THE ADDRESS WHERE NODE IS RUNNING
     carousel = $("#menu");  //ID OF DIV THAT CONTAINS ITEMSLIDE CAROUSEL -  WE ASSIGN IT TO VARIABLE TO USE IT
     var mediaChannel;
     var lastTouchTime = 0;   //THE LAST TIME WE TOUCHED THE REMOTE'S SCREEN
@@ -233,7 +245,7 @@ $(document).ready(function () {
     function checkConnection(){
         lastTouchTime = 0;
         if(socket.connected === false){
-            socket = io.connect('http://' + utilities.localIPAdress + ':3000', {forceNew: true}); 
+            socket = io.connect('http://' + config.localIPAdress + ':3000', {forceNew: true}); 
             console.log('Reconnecting to server');
         }
     }

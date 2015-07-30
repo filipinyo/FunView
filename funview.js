@@ -15,19 +15,19 @@ var path = require('path');
 var fs = require('fs');
 var exec = require('child_process').exec; /*EXECUTE SHELL COMMANDS*/
 var omx = require('omx-manager'); //MODULE FOR CONTROLLING OMX PLAYER
-var localIPAdress = require('address').ip(); //MODULE USED FOR UTILITIES - WE USE IT FOR GETTING OUR LOCAL IP ADDRESS
+var localIPAdress = require('address').ip(); //MODULE USED FOR CONFIG - WE USE IT FOR GETTING OUR LOCAL IP ADDRESS
 var currentUser = ""; //process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
 var usbDevices = [];
 var usbSelected = "";
-var utilities = {}; //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
+var config = {}; //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
 var ytdl = require('ytdl-core'); //YOUTUBE DOWNLOADER
 var colors = require('colors'); //FOR COLORING THE CONSOLE OUTPUT
 
 
 console.log(localIPAdress);
-utilities.localIPAdress = localIPAdress;
+config.localIPAdress = localIPAdress;
 
-fs.writeFileSync("./public/javascripts/funview_scripts/config.js", "var utilities = " + JSON.stringify(utilities) + ";");
+fs.writeFileSync("./public/javascripts/funview_scripts/config.js", "var config = " + JSON.stringify(config) + ";");
 
 //ALLOWED EXTENSIONS
 /*
@@ -258,7 +258,7 @@ sockets.init = function (server) {
         socket.on("youtubeDownloadSong", function(videoInfo){
             if(usbSelected === ""){
                 videoInfo = JSON.parse(videoInfo);
-                console.log("[WARNING]".bgMagenta + " User tried to download video, but usb was not loaded/selected!");
+                console.log("[WARNING]".bgMagenta + " User tried to download song, but usb was not loaded/selected!");
                 videoInfo.warning = "Please mount and select usb device first!"
                 socket.emit('warning', JSON.stringify(videoInfo));
             } else {

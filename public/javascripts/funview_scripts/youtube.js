@@ -1,4 +1,16 @@
-var socket = io('http://' + utilities.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true});
+var config = "";
+
+/*GET CONFIGURATION SETTINGS*/
+$.ajax({
+	url: '/config/config.json',
+	async: false,
+	dataType: 'json',
+	success: function(data){
+		config = data;
+	}
+})
+
+var socket = io('http://' + config.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true});
 
 $('form').on('submit', function(e){
 	e.preventDefault();
@@ -26,7 +38,7 @@ $('form').on('submit', function(e){
 
 function init(){
 
-	gapi.client.setApiKey("AIzaSyBiuwKPz9V3Ee9hwXl7LROVZ4rEllDMc9E");
+	gapi.client.setApiKey('AIzaSyBiuwKPz9V3Ee9hwXl7LROVZ4rEllDMc9E');
 	gapi.client.load("youtube", "v3", function(){
 		//Youtube api is ready!
 	});
