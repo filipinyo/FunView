@@ -63,8 +63,10 @@ socket.on('mediaCommand', function (command) {
 
         //IF LIGHTBOX FOR PHOTOS IS OPENED CLOSE IT!
         if($('#lightboxOverlay').css('display') === "block")
-        $('a[class="lb-close"]').click();
-
+        if($('a[class="lb-close"]').is(":visible")){    //CLOSE PHOTO AND SET REMOTE BACK TO NORMAL
+            $('a[class="lb-close"]').click();
+            socket.emit('closePhoto', "bu");
+        }
         $('li.usb-device.btn-selected').removeClass('highlight');   //WHEN YOU SELECT OTHER MENU, BE SURE THAT USB DEVICE IS NOT HIGHLIGHTED OR CLICK WON'T WORK - SIMPLY -> YOU CAN'T LOAD ONE USB TWICE
         $('.menu-item:eq(' + command.activeMenu + ')').trigger("click");
         $(currentlyDisplayedFiles).removeClass('highlight');    //DEFAULT HIGHLIGHTED ITEM WHEN YOU CHANGE MENU IS ALWAYS GONNA BE FIRST ONE AT THE TOP

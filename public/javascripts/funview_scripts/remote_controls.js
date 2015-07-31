@@ -94,6 +94,7 @@ $(document).ready(function () {
         var command = {};
         command.action = "close";
         socket.emit('remoteCommand', JSON.stringify(command));
+        socket.emit('closePhoto', "bu");
     });
 
     $('.button-row').on('click','#shut-down-button', function(){    //CLOSE

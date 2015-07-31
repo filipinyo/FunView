@@ -61,6 +61,6 @@ socket.on("warning", function(data){
 	alert(data.warning);
 });
 
-if(config.youtubeAPI === null || config.youtubeAPI === undefined){
-	$('#videos').append("<p class='alert alert-warning'>If you want to download youtube videos/music, you have to insert your youtube api key in the settings! If you want to, but don't know how to obtain your youtube API, <a href='https://www.youtube.com/watch?v=Im69kzhpR3I'>you can watch this guide</a>!</p>")
+if(config.youtubeAPI === null || config.youtubeAPI === undefined || config.youtubeAPI === ""){
+	$('#videos').append("<p class='alert alert-info'>If you want to download youtube videos/music, you have to insert your youtube api key in the settings! If you want to, but don't know how to obtain your youtube API, <a href='https://www.youtube.com/watch?v=Im69kzhpR3I'>you can watch this guide</a>!</p>")
 }

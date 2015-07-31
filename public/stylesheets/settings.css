@@ -47,6 +47,7 @@ input {
     font-size: 1.5rem;
     text-align: center;
     margin: auto;
+    margin-top: 1rem;
 }
 
 .video {
@@ -78,7 +79,7 @@ li {
     border-radius: 1rem;
     border: 1px solid black;
     margin-left: 16.667vw;
-    margin-top: 5rem;
+    margin-top: 3rem;
 }
 
 .settings-button {

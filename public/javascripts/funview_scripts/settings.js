@@ -14,8 +14,9 @@ $(document).ready(function() {
 		settings = $('#youtubeAPI').val();
 		socket.emit('changeSettings', settings);
 		$('.unconfirmed-button').addClass('confirmed-button').removeClass('unconfirmed-button');
-		window.location = '/youtube';
+		setTimeout(function(){
+			window.location = '/youtube';
+		}, 1500);
 	});
-
 });
 

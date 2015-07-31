@@ -43,12 +43,15 @@ button {
 /*YOUTUBE RELATED CONTENT*/
 
 #search-bar {
-    width: 100vw;
+    width: 90vw;
     height: 5rem;
     display: block;
-    float: left
-    margin: auto;
     border: solid 1px black;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
 }
 
 #back-button {
@@ -60,6 +63,10 @@ button {
     background-image: url("/images/Youtube.svg");
     background-size: contain;
     background-color: #0086b3;
+}
+
+.alert {
+    width: 90vw;
 }
 
 input {

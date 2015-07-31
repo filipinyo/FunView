@@ -82,6 +82,7 @@ sockets.init = function (server) {
             console.log("[COMMAND]".bgGreen + " Settings have been updated");
             config.youtubeAPI = settings;
             fs.writeFileSync("./public/javascripts/config_scripts/config.js", "var config = " + JSON.stringify(config) + ";");
+            fs.writeFileSync("./config/config.json", JSON.stringify(config));
         });
 
         /*WHEN USER SELECTS USB ON FRONT PAGE - load data into table on the front page*/
@@ -224,11 +225,13 @@ sockets.init = function (server) {
         //RECIVE COMMAND FROM REMOTE
         socket.on("remoteCommand", function(command){
             command = JSON.parse(command);
+            //DEBUGER
             if(command.activeMenu !== undefined){console.log("[COMMAND]".bgGreen + " Menu " + command.activeMenu + " has been selected");}
             if(command.move !== undefined){console.log("[COMMAND]".bgGreen + " Move " + command.move + " command recived");}
             if(command.command !== undefined){console.log("[COMMAND]".bgGreen + " " + command.command + " command has been executed");}
             if(command.action !== undefined){console.log("[COMMAND]".bgGreen + " " + command.action + " command has been executed");}
             if(command.select !== undefined){console.log("[COMMAND]".bgGreen + " Select command has been executed");}
+            
             io.sockets.emit("mediaCommand", JSON.stringify(command));
         });
 
