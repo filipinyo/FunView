@@ -6,7 +6,8 @@ var allowedIdleTime = 20000; //TIME THAT IS ALLOWED TO PASS BEFORE WE KILL THE S
 function checkConnection(){
     lastTouchTime = 0;
     if(socket.connected === false){
-        socket = io.connect('http://' + config.localIPAdress + ':3000', {forceNew: true}); 
+        //socket = io.connect('http://' + config.localIPAdress + ':3000'/*, {forceNew: true}*/); 
+        socket.socket.connect();
         console.log('Reconnecting to server');
     }
 }
