@@ -33,7 +33,7 @@ fs.writeFileSync("./public/javascripts/config_scripts/config.js", "var config = 
 * Extensions that we are looking for on usb devices
 * */
 
-var usbVideoExtensions = ['.mpeg','.avi','.mp4','.ogm','.ogv'];
+var usbVideoExtensions = ['.mpeg','.avi','.mp4','.ogm','.ogv','.mkv'];
 var usbPhotosExtensions = ['.png','.jpeg','.jpg'];
 var usbMusicExtensions = ['.mp3'];
 var usbGameExtensions = ['.nes','.smc','.gen','.gb','.gbc','.gba'];

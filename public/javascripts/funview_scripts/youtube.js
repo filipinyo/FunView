@@ -1,4 +1,4 @@
-var socket = io('http://' + config.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true});
+//var socket = io('http://' + config.localIPAdress + ':3000', {reconnectionDelayMax: 3000, reconnection: true});
 
 $('form').on('submit', function(e){
 	e.preventDefault();
