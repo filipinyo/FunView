@@ -7,7 +7,7 @@ function checkConnection(){
     lastTouchTime = 0;
     if(socket.connected === false){
         //socket = io.connect('http://' + config.localIPAdress + ':3000'/*, {forceNew: true}*/); 
-        socket.reconnect();
+        socket.connect();
         console.log('Reconnecting to server');
     }
 }
@@ -21,7 +21,7 @@ $(document).ready(function() {
     setInterval(function() { //CHECK IF USER WAS ACTIVE ON REMOTE IN LAST 20 SECONDS - IF HE WASN'T, KILL EXSISTING SOCKET AND CREATE NEW ONE
         var now = new Date().getTime();
         if ((now + lastTouchTime) > allowedIdleTime + now) {
-            socket.connect();
+            socket.disconnect();
         }
         lastTouchTime = lastTouchTime + 3000;
     }, 3000); 
