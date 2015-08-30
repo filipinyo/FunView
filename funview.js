@@ -16,7 +16,7 @@ var fs = require('fs');
 var exec = require('child_process').exec; /*EXECUTE SHELL COMMANDS*/
 var omx = require('omx-manager'); //MODULE FOR CONTROLLING OMX PLAYER
 var localIPAdress = require('address').ip(); //MODULE USED FOR CONFIG - WE USE IT FOR GETTING OUR LOCAL IP ADDRESS
-var currentUser = ""; //process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
+var currentUser = process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
 var usbDevices = [];
 var usbSelected = "";
 var config = require('./config/config.json'); //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
@@ -64,6 +64,15 @@ var usbNumberOfFiles;
 * */
 
 sockets.init = function (server) {
+    //auto enter browser fullscreen
+    exec('firefox' + ' ' + localIPAdress + ":3000", function(err, stdout, stderr){
+    });
+    exec('sleep 5', function(err, stdout, stderr){
+      if(err){console.log('error');}
+      exec('xdotool key F11');
+    });
+    exec('xdotool mousemove 0 500');
+
     // socket.io setup
     io = require('socket.io').listen(server);
 
@@ -154,19 +163,19 @@ sockets.init = function (server) {
                     }
 
                     /*SEND INFORMATION TO CLIENT ABOUT FILES AND THEIR TYPES*/
-                    if(usbVideos != null){socket.emit('loadVideoData', JSON.stringify(usbVideos));}
-                    if(usbPhotos != null){socket.emit('loadPhotoData', JSON.stringify(usbPhotos));}
-                    if(usbMusic != null){socket.emit('loadMusicData', JSON.stringify(usbMusic));}
-                    if(usbGames != null){socket.emit('loadGamesData', JSON.stringify(usbGames));}
-                    
+                    if(usbVideos !== null){socket.emit('loadVideoData', JSON.stringify(usbVideos));}
+                    if(usbPhotos !== null){socket.emit('loadPhotoData', JSON.stringify(usbPhotos));}
+                    if(usbMusic !== null){socket.emit('loadMusicData', JSON.stringify(usbMusic));}
+                    if(usbGames !== null){socket.emit('loadGamesData', JSON.stringify(usbGames));}
+
                 }
             });
         });
-        
+
         //IF VIDEO IS SELECTED, START PLAYING VIDEO
         socket.on("playVideo", function(video){
             video = JSON.parse(video);
-            
+
             if(video.name !== null){
                 try{
                     omx.play(video.name, {'--align': 'center', '--font-size': 65});
@@ -180,7 +189,7 @@ sockets.init = function (server) {
                     }
                 } catch (err){
                     console.log("[ERROR]".bgRed + " There has been an error: " + err);
-                }  
+                }
             }
 
             executeCommand(video);
@@ -189,7 +198,7 @@ sockets.init = function (server) {
         //IF MUSIC IS SELECTED, START PLAYING MUSIC
         socket.on("playMusic", function(music){
             music = JSON.parse(music);
-            
+
             if(music.name !== null){
                 try {
                     omx.play(music.name);
@@ -215,7 +224,7 @@ sockets.init = function (server) {
         });
 
         socket.on("closePhoto", function(photo){
-            io.sockets.emit('changeRemoteLayout', 'normal')
+            io.sockets.emit('changeRemoteLayout', 'normal');
         });
 
         socket.on("shutDown", function(command){
@@ -231,7 +240,7 @@ sockets.init = function (server) {
             if(command.command !== undefined){console.log("[COMMAND]".bgGreen + " " + command.command + " command has been executed");}
             if(command.action !== undefined){console.log("[COMMAND]".bgGreen + " " + command.action + " command has been executed");}
             if(command.select !== undefined){console.log("[COMMAND]".bgGreen + " Select command has been executed");}
-            
+
             io.sockets.emit("mediaCommand", JSON.stringify(command));
         });
 
@@ -239,7 +248,7 @@ sockets.init = function (server) {
             if(usbSelected === ""){
                 videoInfo = JSON.parse(videoInfo);
                 console.log("[WARNING]".bgMagenta + " User tried to download video, but usb was not loaded/selected!");
-                videoInfo.warning = "Please mount and select usb device first!"
+                videoInfo.warning = "Please mount and select usb device first!";
                 socket.emit('warning', JSON.stringify(videoInfo));
             } else {
                 videoInfo = JSON.parse(videoInfo);
@@ -267,7 +276,7 @@ sockets.init = function (server) {
             if(usbSelected === ""){
                 videoInfo = JSON.parse(videoInfo);
                 console.log("[WARNING]".bgMagenta + " User tried to download song, but usb was not loaded/selected!");
-                videoInfo.warning = "Please mount and select usb device first!"
+                videoInfo.warning = "Please mount and select usb device first!";
                 socket.emit('warning', JSON.stringify(videoInfo));
             } else {
                 videoInfo = JSON.parse(videoInfo);
@@ -290,7 +299,7 @@ sockets.init = function (server) {
                 }
             }
         });
-        
+
         //socket.on("updateRemoteLayoutOnServer", function(remoteLayout){
         //    io.sockets.emit("updateRemoteLayoutOnMask", remoteLayout);
             /*switch(remoteLayout.type){
@@ -378,11 +387,11 @@ function executeCommand(command){
             break;
 
         case "seekForward":
-            omx.seekForward();   
+            omx.seekForward();
             break;
 
         case "seekBackward":
-            omx.seekBackward();   
+            omx.seekBackward();
             break;
 
         case "toggleSubtitles":
@@ -399,20 +408,20 @@ function executeCommand(command){
 
         case "nextSubtitleStream":
             omx.nextSubtitleStream();
-            break;    
+            break;
 
         case "previousSubtitleStream":
             omx.previousSubtitleStream();
-            break;   
+            break;
 
         case "increaseSubtitleDelay":
             omx.increaseSubtitleDelay();
-            break;   
-                
+            break;
+
         case "reduceSubtitleDelay":
-            omx.decreaseSubtitleDelay();   
-            break; 
-                        
+            omx.decreaseSubtitleDelay();
+            break;
+
         default:
             break;
 
@@ -427,6 +436,6 @@ omx.on('end', function() {
     command.lights = "lightsOn";
     io.sockets.emit('mediaCommand', JSON.stringify(command));
     io.sockets.emit('changeRemoteLayout', 'normal');
-}); 
+});
 
 module.exports = sockets;

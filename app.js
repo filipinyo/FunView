@@ -5,13 +5,11 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var routes = require('./routes/index');
-var youtube = require('./routes/youtube-downloader');
+var home = require('./routes/index');
 var remote = require('./routes/remote');
-var settings = require('./routes/settings');
 
 var app = express();
-var currentUser = ""//process.env.USER;
+var currentUser = process.env.USER;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -28,15 +26,8 @@ app.use(express.static('/media/' + currentUser)); //MAKE USB PUBLICLY AVAILABLE 
 //app.use(express.static(exports.usbSelected));
 //console.log(exports.usbSelected);
 
-app.use('/', routes);
+app.use('/', home);
 app.use('/remote', remote);
-app.use('/youtube', youtube);
-app.use('/settings', settings);
-
-/*STUPIDITY*/
-foo = "/media/user/usb/stuff";
-
-//console.log(foo.split("/media/user")[1]);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

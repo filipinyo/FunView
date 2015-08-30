@@ -34,7 +34,7 @@ var musicHtmlClass = "music-file";
 
 socket.on('connect', function(){
 
-});            
+});
 
 socket.on('resetVars', function(data){
     if(data === "reset"){
@@ -49,7 +49,7 @@ socket.on('resetVars', function(data){
         musicLastAddedFile = 0;
         musicMaxAllowedFiles = 50;
     }
-});                                                                                                                                                                                                                                                  
+});
 
 socket.on('usbAdd', function(data){ //ADD USB BUTTON WHEN USB HAS BEEN SUCCESSFULLY DETECTED ON SERVER
     //alert(data);
@@ -118,14 +118,16 @@ function loadFiles(parsedFiles, lastAddedFile, maxAllowedFiles, htmlPage, htmlFi
     if(htmlPage === ".photo-page"){
         for(lastAddedFile; lastAddedFile < maxAllowedFiles; lastAddedFile++){
             var shortName = fileNameShortener(parsedFiles[lastAddedFile].name);
-            $('.photo-page').append("<li class='file-wrapper file-photo' data-file-path='" + parsedFiles[lastAddedFile].path.replace(/'/g, "&#39;") + "' ><a href='"+parsedFiles[lastAddedFile].path+"' data-lightbox='image-1'><div class='photo-file'></div><ul class='file-info'><li class='file-name'>" + shortName
-            + "</li><li class='file-extension'>" + parsedFiles[lastAddedFile].extension + "</li><li class='file-id'>" + parsedFiles[lastAddedFile].id + "</li></ul></a></li>");
+            $('.photo-page').append("<li class='file-wrapper file-photo' data-file-path='" + parsedFiles[lastAddedFile].path.replace(/'/g, "&#39;") +
+            "' ><a href='"+parsedFiles[lastAddedFile].path+"' data-lightbox='image-1'><div class='photo-file'></div><ul class='file-info'><li class='file-name'>" + shortName +
+            "</li><li class='file-extension'>" + parsedFiles[lastAddedFile].extension + "</li><li class='file-id'>" + parsedFiles[lastAddedFile].id + "</li></ul></a></li>");
         }
     } else {
         for(lastAddedFile; lastAddedFile < maxAllowedFiles; lastAddedFile++){
             var shortName = fileNameShortener(parsedFiles[lastAddedFile].name);
-            $(htmlPage).append("<li class='file-wrapper " + htmlFileType + "'" + "data-file-path='" + parsedFiles[lastAddedFile].path.replace(/'/g, "&#39;") + "' ><div class='" + htmlClass + "'></div><ul class='file-info'><li class='file-name'>" + shortName
-            + "</li><li class='file-extension'>" + parsedFiles[lastAddedFile].extension + "</li><li class='file-id'>" + parsedFiles[lastAddedFile].id + "</li></ul></li>");
+            $(htmlPage).append("<li class='file-wrapper " + htmlFileType + "'" + "data-file-path='" + parsedFiles[lastAddedFile].path.replace(/'/g, "&#39;") + "' ><div class='" +
+            htmlClass + "'></div><ul class='file-info'><li class='file-name'>" + shortName +
+            "</li><li class='file-extension'>" + parsedFiles[lastAddedFile].extension + "</li><li class='file-id'>" + parsedFiles[lastAddedFile].id + "</li></ul></li>");
         }
     }
 
@@ -134,7 +136,7 @@ function loadFiles(parsedFiles, lastAddedFile, maxAllowedFiles, htmlPage, htmlFi
             videoMaxAllowedFiles = videoMaxAllowedFiles + 50;
             videoLastAddedFile = lastAddedFile;
             break;
-        
+
         case ".photo-page":
             photoMaxAllowedFiles = photoMaxAllowedFiles + 50;
             photoLastAddedFile = lastAddedFile;
@@ -143,6 +145,6 @@ function loadFiles(parsedFiles, lastAddedFile, maxAllowedFiles, htmlPage, htmlFi
         case ".music-page":
             musicMaxAllowedFiles = musicMaxAllowedFiles + 50;
             musicLastAddedFile = lastAddedFile;
-            break;    
+            break;
     }
 }

@@ -27,8 +27,8 @@ socket.on('mediaCommand', function (command) {
         case "video-item":
             currentlyDisplayedFiles = ".file-video";
 
-            //IF ONE OF THE LAST FILES IS HIGHLIGHTED, LOAD MORE FILES    
-            var indexOfCurrentyHighlightedItem = $(currentlyDisplayedFiles +'.highlight').index();    
+            //IF ONE OF THE LAST FILES IS HIGHLIGHTED, LOAD MORE FILES - CONNECTED WITH FRONTAPP FILE HANDLIN
+            var indexOfCurrentyHighlightedItem = $(currentlyDisplayedFiles +'.highlight').index();
             if(indexOfCurrentyHighlightedItem >= videoMaxAllowedFiles - 60 && videoFilesLoaded === true){
                 loadFiles(parsedVideos, videoLastAddedFile, videoMaxAllowedFiles, videoHtmlPage, videoHtmlFileType, videoHtmlClass);
             }
@@ -36,7 +36,7 @@ socket.on('mediaCommand', function (command) {
         case "photo-item":
             currentlyDisplayedFiles = ".file-photo";
 
-            var indexOfCurrentyHighlightedItem = $(currentlyDisplayedFiles +'.highlight').index();    
+            var indexOfCurrentyHighlightedItem = $(currentlyDisplayedFiles +'.highlight').index();
             if(indexOfCurrentyHighlightedItem >= photoMaxAllowedFiles - 60 && photoFilesLoaded === true){
                 loadFiles(parsedPhotos, photoLastAddedFile, photoMaxAllowedFiles, photoHtmlPage, photoHtmlFileType, photoHtmlClass);
             }
@@ -44,7 +44,7 @@ socket.on('mediaCommand', function (command) {
         case "music-item":
             currentlyDisplayedFiles = ".file-music";
 
-            var indexOfCurrentyHighlightedItem = $(currentlyDisplayedFiles +'.highlight').index();    
+            var indexOfCurrentyHighlightedItem = $(currentlyDisplayedFiles +'.highlight').index();
             if(indexOfCurrentyHighlightedItem >= musicMaxAllowedFiles - 60 && photoFilesLoaded === true){
                 loadFiles(parsedMusic, musicLastAddedFile, musicMaxAllowedFiles, musicHtmlPage, musicHtmlFileType, musicHtmlClass);
             }
@@ -73,30 +73,33 @@ socket.on('mediaCommand', function (command) {
         $(currentlyDisplayedFiles).eq(0).addClass('highlight');
         $('.content-wrapper').scrollTop(0);
         //$(currentlyDisplayedFiles).eq(0).addClass('highlight');
-    } if (command.select == true) {
+    } if (command.select === true) {
 
         if(!($('li.usb-device.highlight').hasClass('btn-selected'))){  //IF HIGHLIGHTED ITEM IS NOT USB DEVICE OR ALREADY SELECTED = TRIGGER CLICK                                                                                     /*IF WE CLICK ON ITEM CHANGE THE LAYOUT OF REMOTE (MOBILE PHONE)*/
             $(currentlyDisplayedFiles +'.highlight').trigger("click");
-        }    
+        }
 
         //THIS WAS HARDEST THING FOR ME SO BE GENTLE! :D
         //GET URL PATH OF THE PHOTO AND TRIGGER CLICK ONLY ON THE <a> ELEMENT WITH THAT URL
+
+
+
         if(currentlyDisplayedFiles === ".file-photo"){
             var pictureURL = $(currentlyDisplayedFiles +'.highlight').attr('data-file-path');
-            $("a[href='" + pictureURL + "']").click(); 
+            $("a[href='" + pictureURL + "']").click();
         }
 
         if(currentlyDisplayedFiles === ".file-music"){
             var musicURL = $(currentlyDisplayedFiles +'.highlight').attr('data-file-path');
-            $("li[data-file-path='" + musicURL + "']").click(); 
+            $("li[data-file-path='" + musicURL + "']").click();
         }
 
         if(currentlyDisplayedFiles === ".file-video"){
             var videoURL = $(currentlyDisplayedFiles +'.highlight').attr('data-file-path');
-            $("li[data-file-path='" + videoURL + "']").click(); 
+            $("li[data-file-path='" + videoURL + "']").click();
         }
 
-    } if (command.move != null){
+    } if (command.move !== null){
 
         /*==========  REMOTE CONTROL'S MOVEMENT  ==========*/
         /**
@@ -109,8 +112,8 @@ socket.on('mediaCommand', function (command) {
         * throught the content
         *
         **/
-        
-        switch (command.move){            
+
+        switch (command.move){
             case "right":
                 if(currentlyDisplayedFiles !== ".usb-device"){
                     currentIndex = $(currentlyDisplayedFiles +'.highlight').index();
@@ -134,7 +137,7 @@ socket.on('mediaCommand', function (command) {
                 if($('#lightboxOverlay').css('display') === "block"){
                     $('a[class="lb-prev"]').click();
                 }
- 
+
                 break;
 
             case "up":
@@ -158,7 +161,7 @@ socket.on('mediaCommand', function (command) {
                     currentIndex = $(currentlyDisplayedFiles +'.highlight').index();
                     $(currentlyDisplayedFiles).removeClass('highlight');
                     $(currentlyDisplayedFiles).eq(currentIndex + 1).addClass('highlight');
-                }    
+                }
                 break;
         }
 
@@ -192,7 +195,7 @@ socket.on('mediaCommand', function (command) {
                         break;
 
                 }
-                break;    
+                break;
         }
 
     }
@@ -203,7 +206,7 @@ socket.on('mediaCommand', function (command) {
     /*
     * When you hover over main menu, highlight it, If you click it, assign a border to it.
     * */
-    
+
     $('.menu-item').hover(
         function(){
             $(this).addClass("highlight");
@@ -226,7 +229,7 @@ socket.on('mediaCommand', function (command) {
     });*/
 
     $('.video-page').on("click",".file-wrapper", function(){
-        var video = {}; 
+        var video = {};
         video.name = $(this).attr("data-file-path");
         socket.emit("playVideo", JSON.stringify(video));
     });
@@ -300,10 +303,6 @@ socket.on('mediaCommand', function (command) {
             $('.file-wrapper').remove(); /*remove previous content*/
             $('.btn-block').removeClass('btn-selected');
             $(this).addClass('btn-selected');
-            socket.emit('usbSelected', usbName); 
+            socket.emit('usbSelected', usbName);
         }
     });
-
-
-
-
