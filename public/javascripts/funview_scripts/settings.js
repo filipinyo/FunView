@@ -15,8 +15,7 @@ $(document).ready(function() {
 		socket.emit('changeSettings', settings);
 		$('.unconfirmed-button').addClass('confirmed-button').removeClass('unconfirmed-button');
 		setTimeout(function(){
-			window.location = '/youtube';
+			window.location = '/remote/youtube';
 		}, 1500);
 	});
 });
-

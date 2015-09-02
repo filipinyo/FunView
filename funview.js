@@ -16,7 +16,7 @@ var fs = require('fs');
 var exec = require('child_process').exec; /*EXECUTE SHELL COMMANDS*/
 var omx = require('omx-manager'); //MODULE FOR CONTROLLING OMX PLAYER
 var localIPAdress = require('address').ip(); //MODULE USED FOR CONFIG - WE USE IT FOR GETTING OUR LOCAL IP ADDRESS
-var currentUser = ""; //process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
+var currentUser = process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
 var usbDevices = [];
 var usbSelected = "";
 var config = require('./config/config.json'); //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
@@ -66,8 +66,9 @@ var usbNumberOfFiles;
 sockets.init = function (server) {
     //auto enter browser fullscreen
     exec('firefox' + ' ' + localIPAdress + ":3000", function(err, stdout, stderr){
+
     });
-    exec('sleep 5', function(err, stdout, stderr){
+    exec('sleep 20', function(err, stdout, stderr){
       if(err){console.log('error');}
       exec('xdotool key F11');
     });
@@ -166,8 +167,6 @@ sockets.init = function (server) {
                     if(usbVideos !== null){socket.emit('loadVideoData', JSON.stringify(usbVideos));}
                     if(usbPhotos !== null){socket.emit('loadPhotoData', JSON.stringify(usbPhotos));}
                     if(usbMusic !== null){socket.emit('loadMusicData', JSON.stringify(usbMusic));}
-                    if(usbGames !== null){socket.emit('loadGamesData', JSON.stringify(usbGames));}
-
                 }
             });
         });
@@ -256,14 +255,10 @@ sockets.init = function (server) {
                 console.log("[YOU".black.bgWhite + "TUBE]".bgRed + " Trying to download video " + videoInfo.name);
                 try{
                     ytdl(videoInfo.url, {filter: function(format) { return format.container === 'mp4';}})
-                    .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp4").addListener('finish', function(){
+                    .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp4")
+                    .addListener('finish', function(){
                         console.log("[YOU".black.bgWhite + "TUBE]".bgRed + " Finished downloading video!");
                         io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
-                        var command = {};
-                        command.action = "refresh";
-                        io.sockets.emit('mediaCommand', JSON.stringify(command));
-                        command.action = "youtubeSuccess";
-                        io.sockets.emit('mediaCommand', JSON.stringify(command));
                     })
                     );
                 } catch(err){
@@ -284,14 +279,10 @@ sockets.init = function (server) {
                 console.log("[YOU".black.bgWhite + "TUBE]".bgRed + " Trying to download song " + videoInfo.name);
                 try{
                     ytdl(videoInfo.url, {filter: 'audioonly'})
-                    .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp3").addListener('finish', function(){
+                    .pipe(fs.createWriteStream(usbSelected + "/" + videoInfo.name + ".mp3")
+                    .addListener('finish', function(){
                         console.log("[YOU".black.bgWhite + "TUBE]".bgRed + " Finished downloading song!");
                         io.sockets.emit('youtubeDownloadFinish', JSON.stringify(videoInfo));
-                        var command = {};
-                        command.action = "refresh";
-                        io.sockets.emit('mediaCommand', JSON.stringify(command));
-                        command.action = "youtubeSuccess";
-                        io.sockets.emit('mediaCommand', JSON.stringify(command));
                     })
                     );
                 } catch(err){

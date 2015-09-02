@@ -15,7 +15,6 @@ $('form').on('submit', function(e){
 	//EXECUTE REQUEST
 	request.execute(function(response){
 		var results = response.result;
-		console.log(response);
 		$.each(results.items, function(index, item){
 			$('#videos').append(
 				"<li class='video'><iframe src=https://www.youtube.com/embed/" + item.id.videoId + " frameborder='0' data-video-name='" + item.snippet.title + "' data-video-url='https://www.youtube.com/watch?v=" + item.id.videoId + "' allowfullscreen></iframe><div class='download-bar'><p>Downloads and status</p><ul class='download-buttons'><li class='download-video button'></li><li class='download-song button'></li><li class='status-button button'></li></ul></div></li>");
@@ -57,10 +56,10 @@ socket.on("youtubeDownloadFinish", function(videoInfo){
 
 socket.on("warning", function(data){
 	data = JSON.parse(data);
-	$('.video').has("iframe[data-video-url='" + data.url +  "']").find('.status-button').removeClass('rotate')
+	$('.video').has("iframe[data-video-url='" + data.url +  "']").find('.status-button').removeClass('rotate');
 	alert(data.warning);
 });
 
 if(config.youtubeAPI === null || config.youtubeAPI === undefined || config.youtubeAPI === ""){
-	$('#videos').append("<p class='alert alert-info'>If you want to download youtube videos/music, you have to insert your youtube api key in the settings! If you want to, but don't know how to obtain your youtube API, <a href='https://www.youtube.com/watch?v=Im69kzhpR3I'>you can watch this guide</a>!</p>")
+	$('#videos').append("<p class='alert alert-info'>If you want to download youtube videos/music, you have to insert your youtube api key in the settings! If you want to, but don't know how to obtain your youtube API, <a href='https://www.youtube.com/watch?v=Im69kzhpR3I'>you can watch this guide</a>!</p>");
 }
