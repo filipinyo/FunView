@@ -16,7 +16,7 @@ var fs = require('fs');
 var exec = require('child_process').exec; /*EXECUTE SHELL COMMANDS*/
 var omx = require('omx-manager'); //MODULE FOR CONTROLLING OMX PLAYER
 var localIPAdress = require('address').ip(); //MODULE USED FOR CONFIG - WE USE IT FOR GETTING OUR LOCAL IP ADDRESS
-var currentUser = process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
+var currentUser = "";//process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
 var usbDevices = [];
 var usbSelected = "";
 var config = require('./config/config.json'); //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
@@ -174,20 +174,15 @@ sockets.init = function (server) {
         //IF VIDEO IS SELECTED, START PLAYING VIDEO
         socket.on("playVideo", function(video){
             video = JSON.parse(video);
-
             if(video.name !== null){
-                try{
-                    omx.play(video.name, {'--align': 'center', '--font-size': 65});
-                    if(omx.isPlaying()){
-                        var command = {};
-                        if(video.name !== null){console.log("[OMXPLAYER]".bgYellow + " Playing " + video.name);}
-                        if(video.command !== null){console.log("[OMXPLAYER]".bgYellow + " Command " + video.command + " recived");}
-                        command.lights = "lightsOut";
-                        io.sockets.emit('mediaCommand', JSON.stringify(command));
-                        io.sockets.emit('changeRemoteLayout', 'video');
-                    }
-                } catch (err){
-                    console.log("[ERROR]".bgRed + " There has been an error: " + err);
+                omx.play(video.name, {'--align': 'center', '--font-size': 65});
+                if(omx.isPlaying()){
+                    var command = {};
+                    if(video.name !== null){console.log("[OMXPLAYER]".bgYellow + " Playing " + video.name);}
+                    if(video.command !== null){console.log("[OMXPLAYER]".bgYellow + " Command " + video.command + " recived");}
+                    command.lights = "lightsOut";
+                    io.sockets.emit('mediaCommand', JSON.stringify(command));
+                    io.sockets.emit('changeRemoteLayout', 'video');
                 }
             }
 
@@ -197,25 +192,16 @@ sockets.init = function (server) {
         //IF MUSIC IS SELECTED, START PLAYING MUSIC
         socket.on("playMusic", function(music){
             music = JSON.parse(music);
-
             if(music.name !== null){
-                try {
-                    omx.play(music.name);
-                    if(omx.isPlaying()){
-                        var command = {};
-                        if(music.name !== null){console.log("[OMXPLAYER]".bgYellow + " Playing " + music.name);}
-                        if(music.command !== null){console.log("[OMXPLAYER]".bgYellow + " Command " + music.command + " recived");}
-                        io.sockets.emit('changeRemoteLayout', 'music');
-                    }
-                } catch (err) {
-                    console.log("[ERROR]".bgRed + " There has been an error: " + err);
+                omx.play(music.name);
+                if(omx.isPlaying()){
+                    var command = {};
+                    if(music.name !== null){console.log("[OMXPLAYER]".bgYellow + " Playing " + music.name);}
+                    if(music.command !== null){console.log("[OMXPLAYER]".bgYellow + " Command " + music.command + " recived");}
+                    io.sockets.emit('changeRemoteLayout', 'music');
                 }
             }
-
             executeCommand(music);
-            /*exec("killall vlc", function(){
-                exec("vlc --fullscreen " + '"' + data + '"');
-            });*/
         });
 
         socket.on("showPhoto", function(photo){
