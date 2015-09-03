@@ -19,14 +19,11 @@ var localIPAdress = require('address').ip(); //MODULE USED FOR CONFIG - WE USE I
 var currentUser = "";//process.env.USER; //CHECK WHICH USER IS RUNNING NODE - WE'RE USING HIS MEDIA FOLDER TO LOOK FOR USB DEVICES :)
 var usbDevices = [];
 var usbSelected = "";
-var config = require('./config/config.json'); //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
+var config = require('./public/javascripts/config_scripts/config.js'); //OBJECT USED FOR SAVING STUFF TO READ ON WEB - EXAMPLE WE SAVE OUR LOCAL ADDRESS SO SOCKETS CAN CONNECT TO SERVER
 var ytdl = require('ytdl-core'); //YOUTUBE DOWNLOADER
 var colors = require('colors'); //FOR COLORING THE CONSOLE OUTPUT
 
 config.localIPAdress = localIPAdress;
-
-fs.writeFileSync("./config/config.json", JSON.stringify(config));
-fs.writeFileSync("./public/javascripts/config_scripts/config.js", "var config = " + JSON.stringify(config));
 
 //ALLOWED EXTENSIONS
 /*
@@ -92,7 +89,6 @@ sockets.init = function (server) {
             console.log("[COMMAND]".bgGreen + " Settings have been updated");
             config.youtubeAPI = settings;
             fs.writeFileSync("./public/javascripts/config_scripts/config.js", "var config = " + JSON.stringify(config) + ";");
-            fs.writeFileSync("./config/config.json", JSON.stringify(config));
         });
 
         /*WHEN USER SELECTS USB ON FRONT PAGE - load data into table on the front page*/
@@ -312,7 +308,7 @@ var log = console.log.bind(console);
 * */
 
 watcher.on('addDir', function(path) {
-    if(path == '/media/' + currentUser){
+    if(path == '/media/' + currentUser || path == '/media/SETTINGS'){
         return true;
     } else {
         log('Directory', path, 'has been added');
@@ -342,11 +338,7 @@ function executeCommand(command){
     switch(command.command){
         case "play":
             if(!omx.isPlaying()){
-                try{
-                    omx.play();
-                } catch (err) {
-                    console.log("[ERROR]".bgRed + " There has been an error: " + err);
-                }
+              omx.play();
             }
             break;
 
