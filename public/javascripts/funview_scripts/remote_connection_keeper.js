@@ -6,13 +6,13 @@ var allowedIdleTime = 20000; //TIME THAT IS ALLOWED TO PASS BEFORE WE KILL THE S
 function checkConnection(){
     lastTouchTime = 0;
     if(socket.connected === false){
-        //socket = io.connect('http://' + config.localIPAdress + ':3000'/*, {forceNew: true}*/); 
+        //socket = io.connect('http://' + config.localIPAdress + ':3000'/*, {forceNew: true}*/);
         socket.connect();
         console.log('Reconnecting to server');
     }
 }
 
-$(document).ready(function() {	
+$(document).ready(function() {
 
     $('body').on('click', function(){   //ON BUTTON CLICK, CHECK IF SOCKET IS CONNECTED, IF IT ISN'T RECONNECT IT
         checkConnection();
@@ -24,5 +24,5 @@ $(document).ready(function() {
             socket.disconnect();
         }
         lastTouchTime = lastTouchTime + 3000;
-    }, 3000); 
+    }, 3000);
 });

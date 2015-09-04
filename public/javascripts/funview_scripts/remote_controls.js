@@ -72,7 +72,7 @@ $(document).ready(function () {
             case "normal":
                 $('.controls').addClass('hidden');
                 $('#normal-controls').removeClass('hidden');
-                break;    
+                break;
         }
     });
 
@@ -135,7 +135,7 @@ $(document).ready(function () {
         video.command = "play";
         socket.emit(mediaChannel, JSON.stringify(video));
     });
-    
+
     $('.button-row').on('click','#pause-button', function(){      //PAUSE
         var video = {};
         video.command = "pause";
@@ -203,7 +203,7 @@ $(document).ready(function () {
     });
 
     //ACTIVE INDEX
-    
+
     function currentActiveMenu(activeIndex){
         switch(activeIndex){
             case 0:
@@ -212,7 +212,7 @@ $(document).ready(function () {
 
             case 2:
                 return "playMusic";
-                break; 
+                break;
         }
     }
 });

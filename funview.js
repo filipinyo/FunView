@@ -24,7 +24,7 @@ var ytdl = require('ytdl-core'); //YOUTUBE DOWNLOADER
 var colors = require('colors'); //FOR COLORING THE CONSOLE OUTPUT
 
 config.localIPAdress = localIPAdress;
-
+fs.writeFileSync("./public/javascripts/config_scripts/config.js", "var config = " + JSON.stringify(config) + ";");
 //ALLOWED EXTENSIONS
 /*
 * Extensions that we are looking for on usb devices
@@ -65,7 +65,7 @@ sockets.init = function (server) {
     exec('firefox' + ' ' + localIPAdress + ":3000", function(err, stdout, stderr){
 
     });
-    exec('sleep 20', function(err, stdout, stderr){
+    exec('sleep 30', function(err, stdout, stderr){
       if(err){console.log('error');}
       exec('xdotool key F11');
     });
