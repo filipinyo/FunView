@@ -1,1 +1,1 @@
-var config = {"localIPAdress":"192.168.0.19"};
+var config = {"localIPAdress":"192.168.0.12","youtubeAPI":"AIzaSyBiuwKPz9V3Ee9hwXl7LROVZ4rEllDMc9E"};
